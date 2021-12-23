@@ -31,7 +31,7 @@ var PerformanceHarness = {
         dimensions: { width: 400, height: 250 },
         collections: [
           {
-            name: "シミュレーション実行",
+            name: "無作為",
             attrs: [
               { name: "シミュレーション回数", type: 'numeric', precision: 0 },
               { name: "投票数", type: 'numeric', precision: 0 },
@@ -121,7 +121,7 @@ var PerformanceHarness = {
         this.codapPhone.call({
           action: 'createCase',
           args: {
-            collection: "Events",
+            collection: "シミュレーション結果",
             parent: this.openTestID,
             values: [
               ++this_.trialNum,
@@ -142,7 +142,7 @@ var PerformanceHarness = {
         this.codapPhone.call({
           action: 'closeCase',
           args: {
-            collection: "Tests",
+            collection: "無作為",
             caseID: this.openTestID,
             values: [
               this_.gameNum,
@@ -172,7 +172,7 @@ var PerformanceHarness = {
     this.codapPhone.call({
       action: 'openCase',
       args: {
-        collection: "Tests",
+        collection: "無作為",
         values: [ ++this.gameNum ]
       }
     }, function (result) {
