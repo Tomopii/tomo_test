@@ -30,10 +30,9 @@ var PerformanceHarness = {
             name: "Tests",
             attrs: [
               { name: "シミュレーション回数", type: 'numeric', precision: 0 },
-              { name: "iterations", type: 'numeric', precision: 0 },
-              { name: "totalTime", type: 'numeric', precision: 0 },
-              { name: "avgRate", type: 'numeric', precision: 2 },
-              { name: "delay", type: 'numeric', precision: 0}
+              { name: "投票数", type: 'numeric', precision: 0 },
+              { name: "賛成数", type: 'numeric', precision: 0 },
+              { name: "反対数", type: 'numeric', precision: 2 }
             ],
             childAttrName: "events",
             defaults: {
@@ -85,10 +84,9 @@ var PerformanceHarness = {
           caseID: this.openTestID,
           values: [
             this.gameNum,
-            this.trialNum,
-            tTotalTime,
-            this.trialNum * 1000 / tTotalTime,
-            tDelay
+            100000,
+            25000,
+            75000
           ]
         }
       }, function () {
