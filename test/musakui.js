@@ -29,7 +29,7 @@ var PerformanceHarness = {
           {
             name: "Tests",
             attrs: [
-              { name: "test", type: 'numeric', precision: 0 },
+              { name: "シミュレーション回数", type: 'numeric', precision: 0 },
               { name: "iterations", type: 'numeric', precision: 0 },
               { name: "totalTime", type: 'numeric', precision: 0 },
               { name: "avgRate", type: 'numeric', precision: 2 },
@@ -37,14 +37,14 @@ var PerformanceHarness = {
             ],
             childAttrName: "events",
             defaults: {
-              xAttr: "test",
+              xAttr: "シミュレーション回数",
               yAttr: "avgRate"
             }
           },
           {
             name: "Events",
             attrs: [
-              { name: "trial", type: 'numeric', precision: 0, defaultMin: 0, defaultMax: 100 },
+              { name: "実行回数", type: 'numeric', precision: 0, defaultMin: 0, defaultMax: 100 },
               { name: "randNum", type: 'numeric', precision: 2 },
               { name: "rate", type: 'numeric', precision: 2, defaultMin: 0, defaultMax: 60 },
               { name: "choice", type: 'nominal',
