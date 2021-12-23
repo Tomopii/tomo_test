@@ -14,18 +14,15 @@
 <body bgcolor="#93A2B5">
 <h1>無作為抽出シュミレーション</h1>
 <form name="form1">
-    <p>調査対象となる10万人が賛成25000人、反対75000人だった時の無作為抽出。</p>
+    <p>投票数<input type="text" size=5 maxlength=6 name="touhyou_n" value = 100000>人が賛成<input type="text" size=5 maxlength=6 name="sansei_n" value = 25000>人、反対<input type="text" size=5 maxlength=6 name="hantai_n" value = 75000>人だった時の無作為抽出。</p>
     <p>
-        サンプルサイズ <input type="text" size=5 maxlength=4 name="sampleSize" value = 100>
+        サンプルサイズ <input type="text" size=5 maxlength=4 name="sampleSize" value = 100>で<input type="text" size=5 maxlength=4 name="numTrials" value = 100>回
     </p>
-    <p>
-        実行回数 <input type="text" size=5 maxlength=4 name="numTrials" value = 100>
-    </p>
+    <input type="button" onClick="PerformanceHarness.runTest();" name="run" value="シュミレーション開始">
     <p>
         Delay between trials <input type="text" size=5 maxlength=4 name="delay" value=1> ms<br>
         <input type="checkbox" name="profile">Profile
     </p>
-    <input type="button" onClick="PerformanceHarness.runTest();" name="run" value="シュミレーション開始">
 </form>
 <p>Time = <span id="time"></span> ms, Rate = <span id="rate"></span> cases/sec</p>
 </body>
