@@ -113,7 +113,7 @@ var PerformanceHarness = {
             if(Math.random() < sansei_n/(hantai_n + sansei_n)) S_sansei_n++;
         }
         S_hantai_n = tSampleSize - S_sansei_n;
-        console.log(this_.trialNum+"/"+sansei_n+"/"+hantai_n+"/"+S_sansei_n);
+        console.log(this_.trialNum+"/"+sansei_n+"/"+hantai_n+"/"+tSampleSize+"/"+S_sansei_n);
         this.codapPhone.call({
           action: 'createCase',
           args: {
