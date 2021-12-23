@@ -4,6 +4,10 @@
 
 //DG = window.parent.DG;
 
+var touhyou_n = 100000;
+var sansei_n = 25000;
+var hantai_n = 75000;
+
 var PerformanceHarness = {
 
   codapPhone: null,
@@ -84,9 +88,9 @@ var PerformanceHarness = {
           caseID: this.openTestID,
           values: [
             this.gameNum,
-            100000,
-            25000,
-            75000
+            touhyou_n,
+            sansei_n,
+            hantai_n
           ]
         }
       }, function () {
@@ -137,10 +141,9 @@ var PerformanceHarness = {
             caseID: this.openTestID,
             values: [
               this_.gameNum,
-              this_.trialNum,
-              tTotalTime,
-              this_.trialNum * 1000 / tTotalTime,
-              tDelay
+              touhyou_n,
+              sansei_n,
+              hantai_n
             ]
           }
         });
