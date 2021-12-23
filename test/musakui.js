@@ -109,9 +109,9 @@ var PerformanceHarness = {
         // If a delay is specified, set the timer for the next call
         window.setTimeout(addNextCase, tDelay);
         S_sansei_n = Math.floor(Math.random()*(sansei_n/(hantai_n + sansei_n)) * tSampleSize);
-        console.log(sansei_n+"/"+hantai_n);
+        console.log(sansei_n+"//"+hantai_n);
         S_hantai_n = tSampleSize - S_sansei_n;
-        console.log(this_.trialNum+"/"+S_sansei_n+"/"+S_hantai_n+"=="+Math.floor(Math.random()*(25000/(75000+ 25000)) * 100));
+        console.log(this_.trialNum+"/"+S_sansei_n+"/"+S_hantai_n+"=="+Math.floor(Math.random()*(sansei_n/(hantai_n+ sansei_n)) * 100));
         this.codapPhone.call({
           action: 'createCase',
           args: {
