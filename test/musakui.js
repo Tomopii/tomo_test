@@ -32,28 +32,25 @@ var PerformanceHarness = {
               { name: "シミュレーション回数", type: 'numeric', precision: 0 },
               { name: "投票数", type: 'numeric', precision: 0 },
               { name: "賛成数", type: 'numeric', precision: 0 },
-              { name: "反対数", type: 'numeric', precision: 0 },
-              { name: "サンプルサイズ", type: 'numeric', precision: 0 }
+              { name: "反対数", type: 'numeric', precision: 0 }
             ],
             childAttrName: "events",
             defaults: {
               xAttr: "シミュレーション回数",
-              yAttr: "avgRate"
+              yAttr: "賛成数"
             }
           },
           {
             name: "シミュレーション結果",
             attrs: [
               { name: "実行回数", type: 'numeric', precision: 0, defaultMin: 0, defaultMax: 100 },
-              { name: "randNum", type: 'numeric', precision: 2 },
-              { name: "rate", type: 'numeric', precision: 2, defaultMin: 0, defaultMax: 60 },
-              { name: "choice", type: 'nominal',
-              colormap: { red: null, green: null }},
-              { name: "signal", type: 'numeric', precision: 3, defaultMin: -1, defaultMax: 1 }
+              { name: "サンプルサイズ", type: 'numeric', precision: 0 },
+              { name: "賛成数", type: 'numeric', precision: 0 },
+              { name: "反対数", type: 'numeric', precision: 0 }
             ],
             defaults: {
-              xAttr: "trial",
-              yAttr: "rate"
+              xAttr: "賛成数",
+              yAttr: ""
             }
           }
         ]
@@ -91,8 +88,7 @@ var PerformanceHarness = {
             this.gameNum,
             touhyou_n,
             sansei_n,
-            hantai_n,
-            tSampleSize
+            hantai_n
           ]
         }
       }, function () {
@@ -114,7 +110,8 @@ var PerformanceHarness = {
 
 
         window.setTimeout(addNextCase, tDelay);
-
+        S_sansei_n = 999;
+        S_hantai_n = 999;
         this.codapPhone.call({
           action: 'createCase',
           args: {
@@ -122,10 +119,9 @@ var PerformanceHarness = {
             parent: this.openTestID,
             values: [
               ++this_.trialNum,
-              Math.random(),
-              tRate,
-              tChoice,
-              tSignal
+              tSampleSize,
+              S_sansei_n,
+              S_hantai_n
             ]
           }
         });
@@ -145,8 +141,7 @@ var PerformanceHarness = {
               this_.gameNum,
               touhyou_n,
               sansei_n,
-              hantai_n,
-              tSampleSize
+              hantai_n
             ]
           }
         });
