@@ -69,8 +69,8 @@ var PerformanceHarness = {
 
   runTest: function () {
     var tNumTrials = Number(document.forms.form1.numTrials.value),
-      tDelay = Number(document.forms.form1.delay.value),
-      tProfile = document.forms.form1.profile.checked,
+      tDelay = 1,
+      tProfile = 1,
       touhyou_n = document.forms.form1.touhyou_n.value,
       sansei_n = document.forms.form1.sansei_n.value,
       hantai_n = touhyou_n - sansei_n,
@@ -153,8 +153,8 @@ var PerformanceHarness = {
         this.trialNum = 0;
         var time = Date.now() - this_.startTime;
         this.openTestID = null;
-        document.getElementById('time').innerHTML = time;
-        document.getElementById('rate').innerHTML = Math.round(10000 * tNumTrials / time) / 10;
+        //document.getElementById('time').innerHTML = time;
+        //document.getElementById('rate').innerHTML = Math.round(10000 * tNumTrials / time) / 10;
         if (tProfile)
           console.profileEnd();
         document.forms.form1.run.disabled = false;
