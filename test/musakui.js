@@ -36,7 +36,8 @@ var PerformanceHarness = {
               { name: "シミュレーション回数", type: 'numeric', precision: 0 },
               { name: "投票数", type: 'numeric', precision: 0 },
               { name: "賛成数", type: 'numeric', precision: 0 },
-              { name: "反対数", type: 'numeric', precision: 2 }
+              { name: "反対数", type: 'numeric', precision: 0 },
+              { name: "サンプルサイズ", type: 'numeric', precision: 0 }
             ],
             childAttrName: "events",
             defaults: {
@@ -74,6 +75,7 @@ var PerformanceHarness = {
     var tNumTrials = Number(document.forms.form1.numTrials.value),
       tDelay = Number(document.forms.form1.delay.value),
       tProfile = document.forms.form1.profile.checked,
+      tSampleSize = document.forms.form1.sampleSize.value,
       tIndex = 0,
       tTime = Date.now(),
       this_ = this,
@@ -90,7 +92,8 @@ var PerformanceHarness = {
             this.gameNum,
             touhyou_n,
             sansei_n,
-            hantai_n
+            hantai_n,
+            tSampleSize
           ]
         }
       }, function () {
@@ -143,7 +146,8 @@ var PerformanceHarness = {
               this_.gameNum,
               touhyou_n,
               sansei_n,
-              hantai_n
+              hantai_n,
+              tSampleSize
             ]
           }
         });
