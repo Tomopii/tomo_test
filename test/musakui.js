@@ -68,10 +68,10 @@ var PerformanceHarness = {
     var tNumTrials = Number(document.forms.form1.numTrials.value),
       tDelay = 1,
       tProfile = 1,
-      touhyou_n = document.forms.form1.touhyou_n.value,
-      sansei_n = document.forms.form1.sansei_n.value,
+      touhyou_n = Number(document.forms.form1.touhyou_n.value),
+      sansei_n = Number(document.forms.form1.sansei_n.value),
       hantai_n = touhyou_n - sansei_n,
-      tSampleSize = document.forms.form1.sampleSize.value,
+      tSampleSize = Number(document.forms.form1.sampleSize.value),
       tIndex = 0,
       tTime = Date.now(),
       this_ = this,
@@ -109,9 +109,8 @@ var PerformanceHarness = {
         // If a delay is specified, set the timer for the next call
         window.setTimeout(addNextCase, tDelay);
         S_sansei_n = Math.floor(Math.random()*(sansei_n/(hantai_n + sansei_n)) * tSampleSize);
-        console.log(sansei_n+"//"+hantai_n);
         S_hantai_n = tSampleSize - S_sansei_n;
-        console.log(this_.trialNum+"/"+S_sansei_n+"/"+S_hantai_n+"=="+Math.floor(Math.random()*(sansei_n/(hantai_n+ sansei_n)) * 100));
+        //console.log(this_.trialNum+"/"+S_sansei_n+"/"+S_hantai_n+"=="+Math.floor(Math.random()*(sansei_n/(hantai_n+ sansei_n)) * 100));
         this.codapPhone.call({
           action: 'createCase',
           args: {
