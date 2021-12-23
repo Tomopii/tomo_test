@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+
+    <script src="../Common/js/iframe-phone.js" language="javascript"></script>
+    <script src="musakui".js" language="javascript"></script>
+
+
+    <title>無作為抽出シュミレーション</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+<h1>無作為抽出シュミレーション</h1>
+<form name="form1">
+    <p>調査対象となる10万人が賛成25000人、反対75000人だった時の無作為抽出。</p>
+    <p>
+        サンプルサイズ <input type="text" size=5 maxlength=4 name="sampleSize" value = 100>
+    </p>
+    <p>
+        実行回数 <input type="text" size=5 maxlength=4 name="numTrials" value = 100>
+    </p>
+    <p>
+        Delay between trials <input type="text" size=5 maxlength=4 name="delay" value=1> ms<br>
+        <input type="checkbox" name="profile">Profile
+    </p>
+    <input type="button" onClick="PerformanceHarness.runTest();" name="run" value="シュミレーション開始">
+</form>
+<p>Time = <span id="time"></span> ms, Rate = <span id="rate"></span> cases/sec</p>
+</body>
+</html>
