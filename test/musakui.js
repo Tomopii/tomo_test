@@ -4,10 +4,6 @@
 
 //DG = window.parent.DG;
 
-var touhyou_n;
-var sansei_n;
-var hantai_n;
-
 var PerformanceHarness = {
 
   codapPhone: null,
@@ -31,7 +27,7 @@ var PerformanceHarness = {
         dimensions: { width: 400, height: 250 },
         collections: [
           {
-            name: "無作為",
+            name: "無作為抽出",
             attrs: [
               { name: "シミュレーション回数", type: 'numeric', precision: 0 },
               { name: "投票数", type: 'numeric', precision: 0 },
@@ -75,8 +71,9 @@ var PerformanceHarness = {
     var tNumTrials = Number(document.forms.form1.numTrials.value),
       tDelay = Number(document.forms.form1.delay.value),
       tProfile = document.forms.form1.profile.checked,
-      ttouhyou_n = document.forms.form1.touhyou_n.value,
-      tsansei_n = document.forms.form1.sansei_n.value,
+      touhyou_n = document.forms.form1.touhyou_n.value,
+      sansei_n = document.forms.form1.sansei_n.value,
+      hantai_n = touhyou_n - sansei_n,
       tSampleSize = document.forms.form1.sampleSize.value,
       tIndex = 0,
       tTime = Date.now(),
@@ -142,7 +139,7 @@ var PerformanceHarness = {
         this.codapPhone.call({
           action: 'closeCase',
           args: {
-            collection: "無作為",
+            collection: "無作為抽出",
             caseID: this.openTestID,
             values: [
               this_.gameNum,
@@ -172,7 +169,7 @@ var PerformanceHarness = {
     this.codapPhone.call({
       action: 'openCase',
       args: {
-        collection: "無作為",
+        collection: "無作為抽出",
         values: [ ++this.gameNum ]
       }
     }, function (result) {
