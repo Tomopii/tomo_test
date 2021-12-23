@@ -77,7 +77,6 @@ var PerformanceHarness = {
       tProfile = document.forms.form1.profile.checked,
       ttouhyou_n = document.forms.form1.touhyou_n.value,
       tsansei_n = document.forms.form1.sansei_n.value,
-      thantai_n = document.forms.form1.hantai_n.value,
       tSampleSize = document.forms.form1.sampleSize.value,
       tIndex = 0,
       tTime = Date.now(),
