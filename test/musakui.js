@@ -4,6 +4,10 @@
 
 //DG = window.parent.DG;
 
+var touhyou_n;
+var sansei_n;
+var hantai_n;
+
 var PerformanceHarness = {
 
   codapPhone: null,
@@ -71,9 +75,9 @@ var PerformanceHarness = {
     var tNumTrials = Number(document.forms.form1.numTrials.value),
       tDelay = Number(document.forms.form1.delay.value),
       tProfile = document.forms.form1.profile.checked,
-      touhyou_n = document.forms.form1.touhyou_n.value,
-      sansei_n = document.forms.form1.sansei_n.value,
-      hantai_n = document.forms.form1.hantai_n.value,
+      ttouhyou_n = document.forms.form1.touhyou_n.value,
+      tsansei_n = document.forms.form1.sansei_n.value,
+      thantai_n = document.forms.form1.hantai_n.value,
       tSampleSize = document.forms.form1.sampleSize.value,
       tIndex = 0,
       tTime = Date.now(),
