@@ -4,10 +4,6 @@
 
 //DG = window.parent.DG;
 
-var touhyou_n = 100000;
-var sansei_n = 25000;
-var hantai_n = 75000;
-
 var PerformanceHarness = {
 
   codapPhone: null,
@@ -31,7 +27,7 @@ var PerformanceHarness = {
         dimensions: { width: 400, height: 250 },
         collections: [
           {
-            name: "Tests",
+            name: "シミュレーション実行",
             attrs: [
               { name: "シミュレーション回数", type: 'numeric', precision: 0 },
               { name: "投票数", type: 'numeric', precision: 0 },
@@ -46,7 +42,7 @@ var PerformanceHarness = {
             }
           },
           {
-            name: "Events",
+            name: "シミュレーション結果",
             attrs: [
               { name: "実行回数", type: 'numeric', precision: 0, defaultMin: 0, defaultMax: 100 },
               { name: "randNum", type: 'numeric', precision: 2 },
@@ -75,6 +71,9 @@ var PerformanceHarness = {
     var tNumTrials = Number(document.forms.form1.numTrials.value),
       tDelay = Number(document.forms.form1.delay.value),
       tProfile = document.forms.form1.profile.checked,
+      touhyou_n = document.forms.form1.touhyou_n.value,
+      sansei_n = document.forms.form1.sansei_n.value,
+      hantai_n = document.forms.form1.hantai_n.value,
       tSampleSize = document.forms.form1.sampleSize.value,
       tIndex = 0,
       tTime = Date.now(),
