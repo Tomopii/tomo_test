@@ -23,7 +23,7 @@ var PerformanceHarness = {
     this.codapPhone.call({
       action: 'initGame',
       args: {
-        name: "Performance Harness",
+        name: "無作為抽出シュミレーション",
         dimensions: { width: 500, height: 250 },
         collections: [
           {
