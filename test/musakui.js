@@ -24,7 +24,7 @@ var PerformanceHarness = {
       action: 'initGame',
       args: {
         name: "Performance Harness",
-        dimensions: { width: 400, height: 250 },
+        dimensions: { width: 500, height: 250 },
         collections: [
           {
             name: "抽出元",
