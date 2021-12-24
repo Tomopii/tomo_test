@@ -27,7 +27,7 @@ var PerformanceHarness = {
         dimensions: { width: 400, height: 250 },
         collections: [
           {
-            name: "無作為抽出",
+            name: "抽出元",
             attrs: [
               { name: "シミュレーション回数", type: 'numeric', precision: 0 },
               { name: "投票数", type: 'numeric', precision: 0 },
@@ -41,7 +41,7 @@ var PerformanceHarness = {
             }
           },
           {
-            name: "シミュレーション結果",
+            name: "サンプリング結果",
             attrs: [
               { name: "実行回数", type: 'numeric', precision: 0, defaultMin: 0, defaultMax: 100 },
               { name: "サンプルサイズ", type: 'numeric', precision: 0 },
@@ -82,7 +82,7 @@ var PerformanceHarness = {
       this.codapPhone.call({
         action: 'updateCase',
         args: {
-          collection: "Test",
+          collection: "抽出元",
           caseID: this.openTestID,
           values: [
             this.gameNum,
@@ -117,7 +117,7 @@ var PerformanceHarness = {
         this.codapPhone.call({
           action: 'createCase',
           args: {
-            collection: "シミュレーション結果",
+            collection: "サンプリング結果",
             parent: this.openTestID,
             values: [
               ++this_.trialNum,
@@ -137,7 +137,7 @@ var PerformanceHarness = {
         this.codapPhone.call({
           action: 'closeCase',
           args: {
-            collection: "無作為抽出",
+            collection: "抽出元",
             caseID: this.openTestID,
             values: [
               this_.gameNum,
@@ -166,8 +166,11 @@ var PerformanceHarness = {
     this.codapPhone.call({
       action: 'openCase',
       args: {
-        collection: "無作為抽出",
-        values: [ ++this.gameNum ]
+        collection: "抽出元",
+        values: [ ++this.gameNum ],
+        touhyou_n,
+        sansei_n,
+        hantai_n
       }
     }, function (result) {
       if (result.success) {
