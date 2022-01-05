@@ -63,7 +63,15 @@ var PerformanceHarness = {
   setupNewTest: function () {
     console.log("In setupNewTest");
   },
-
+ 
+  deleteAllCases: async function () {
+    let theMessage = {
+      action: 'delete',
+      resource : "dataContext[サンプリング結果].allCases"
+    };
+    return await this.codapPhone.sendRequest(theMessage);
+  },
+ 
   runTest: function () {
     var tNumTrials = Number(document.forms.form1.numTrials.value),
       tDelay = 1,
