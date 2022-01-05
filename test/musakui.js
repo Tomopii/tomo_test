@@ -11,7 +11,7 @@ var PerformanceHarness = {
   trialNum: 0,
   gameNum: 0,
   startTime: null,
-
+  caseDt:[],
 
   initialize: function () {
 
@@ -69,7 +69,7 @@ var PerformanceHarness = {
 	    action: 'deleteCases',
 	    args: {
 	      collection: "抽出元",
-	      caseIDs: [this.openTestID],
+	      caseIDs: this.caseDt,
 	    }
 	  }, function () {
         console.log("deleteCases");
@@ -161,7 +161,8 @@ var PerformanceHarness = {
         });
         this.trialNum = 0;
         var time = Date.now() - this_.startTime;
-        //this.openTestID = null;
+        this.caseDt.push(this.openTestID);
+        this.openTestID = null;
         //document.getElementById('time').innerHTML = time;
         //document.getElementById('rate').innerHTML = Math.round(10000 * tNumTrials / time) / 10;
         if (tProfile)
