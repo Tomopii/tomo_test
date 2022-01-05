@@ -68,7 +68,7 @@ var PerformanceHarness = {
 	this.codapPhone.call({
 	    action: 'deleteCases',
 	    args: {
-	      collection: "サンプリング結果",
+	      collection: "抽出元",
 	      caseIDs: [this.openTestID],
 	    }
 	  }, function () {
@@ -161,7 +161,7 @@ var PerformanceHarness = {
         });
         this.trialNum = 0;
         var time = Date.now() - this_.startTime;
-        this.openTestID = null;
+        //this.openTestID = null;
         //document.getElementById('time').innerHTML = time;
         //document.getElementById('rate').innerHTML = Math.round(10000 * tNumTrials / time) / 10;
         if (tProfile)
