@@ -65,7 +65,6 @@ var PerformanceHarness = {
   },
 
   runTest: function () {
-    initialize();
     var tNumTrials = Number(document.forms.form1.numTrials.value),
       tDelay = 1,
       tProfile = 1,

@@ -12,12 +12,13 @@
 </head>
 
 <body bgcolor="#93A2B5">
-<h1>無作為抽出シュミレーション</h1>
+<h1>無作為抽出シュミレーション3</h1>
 <form name="form1">
     <p>投票数<input type="text" size=5 maxlength=6 name="touhyou_n" value = 100000>人の内、賛成が<input type="text" size=4 maxlength=5 name="sansei_n" value = 25000>人の時の無作為抽出。</p>
     <p>
         サンプルサイズ <input type="text" size=5 maxlength=3 name="sampleSize" value = 300>で<input type="text" size=5 maxlength=3 name="numTrials" value = 200>回
     </p>
+    <input type="button" onClick="PerformanceHarness.initialize();" name="init" value="init">
     <input type="button" onClick="PerformanceHarness.runTest();" name="run" value="シュミレーション開始">
 </form>
 <!-- <p>Time = <span id="time"></span> ms, Rate = <span id="rate"></span> cases/sec</p> -->
