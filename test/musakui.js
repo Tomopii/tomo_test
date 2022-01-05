@@ -65,15 +65,17 @@ var PerformanceHarness = {
   },
  
   deleteAllCases: function () {
-    this.codapPhone.call({
-          action: 'deleteCases',
-          args: {
-            collection: "抽出元",
-            caseID: this.openTestID,
-            values: [
-            ]
-          }
-        });
+	this.codapPhone.call({
+	    action: 'deleteCases',
+	    args: {
+	      collection: "抽出元",
+	      caseIDs: [this.openTestID],
+	    }
+	  },
+	  function () {
+	      this.setupNewTest();
+	    }
+	);
   },
  
   runTest: function () {
