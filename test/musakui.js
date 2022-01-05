@@ -21,7 +21,7 @@ var PerformanceHarness = {
       function (iCmd, iCallback) { iCallback(); }, "codap-game", window.parent);
 
     this.codapPhone.call({
-      action: 'initGame',
+      action: 'create',
       args: {
         name: "無作為抽出シュミレーション",
         dimensions: { width: 500, height: 250 },
@@ -62,48 +62,6 @@ var PerformanceHarness = {
 
   setupNewTest: function () {
     console.log("In setupNewTest");
-  },
-
-  init_test: function() {
-    this.codapPhone.call({
-      action: 'initGame',
-      args: {
-        name: "無作為抽出シュミレーション",
-        dimensions: { width: 500, height: 250 },
-        collections: [
-          {
-            name: "抽出元",
-            attrs: [
-              { name: "シミュレーション回数", type: 'numeric', precision: 0 },
-              { name: "投票数", type: 'numeric', precision: 0 },
-              { name: "賛成数", type: 'numeric', precision: 0 },
-              { name: "反対数", type: 'numeric', precision: 0 }
-            ],
-            childAttrName: "events",
-            defaults: {
-              xAttr: "シミュレーション回数",
-              yAttr: "賛成数"
-            }
-          },
-          {
-            name: "サンプリング結果",
-            attrs: [
-              { name: "実行回数", type: 'numeric', precision: 0, defaultMin: 0, defaultMax: 100 },
-              { name: "サンプルサイズ", type: 'numeric', precision: 0 },
-              { name: "賛成数", type: 'numeric', precision: 0 },
-              { name: "反対数", type: 'numeric', precision: 0 },
-              { name: "test", type: 'numeric', precision: 0 }
-            ],
-            defaults: {
-              xAttr: "賛成数",
-              yAttr: ""
-            }
-          }
-        ]
-      }
-    }, function () {
-      this.setupNewTest();
-    }.bind(this));
   },
 
   runTest: function () {
