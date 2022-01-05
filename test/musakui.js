@@ -64,12 +64,14 @@ var PerformanceHarness = {
     console.log("In setupNewTest");
   },
  
-  deleteAllCases: async function () {
-    let theMessage = {
-      action: 'delete',
-      resource : "dataContext[サンプリング結果].allCases"
-    };
-    return await this.codapPhone.sendRequest(theMessage);
+  deleteAllCases: function () {
+    this.codapPhone.call({
+          action: 'deleteCases',
+          args: {
+            collection: "サンプリング結果",
+            caseID: this.openTestID
+          }
+        });
   },
  
   runTest: function () {
