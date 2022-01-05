@@ -68,7 +68,7 @@ var PerformanceHarness = {
 	this.codapPhone.call({
 	    action: 'deleteCases',
 	    args: {
-	      collection: "抽出元",
+	      collection: "サンプリング結果",
 	      caseIDs: [this.openTestID],
 	    }
 	  }, function () {
