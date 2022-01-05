@@ -71,10 +71,6 @@ var PerformanceHarness = {
             collection: "抽出元",
             caseID: this.openTestID,
             values: [
-              this_.gameNum,
-              touhyou_n,
-              sansei_n,
-              hantai_n
             ]
           }
         });
