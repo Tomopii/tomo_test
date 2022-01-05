@@ -21,7 +21,7 @@ var PerformanceHarness = {
       function (iCmd, iCallback) { iCallback(); }, "codap-game", window.parent);
 
     this.codapPhone.call({
-      action: 'create',
+      action: 'initGame',
       args: {
         name: "無作為抽出シュミレーション",
         dimensions: { width: 500, height: 250 },
