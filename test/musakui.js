@@ -68,8 +68,14 @@ var PerformanceHarness = {
     this.codapPhone.call({
           action: 'deleteCases',
           args: {
-            collection: "サンプリング結果",
-            caseID: this.openTestID
+            collection: "抽出元",
+            caseID: this.openTestID,
+            values: [
+              this_.gameNum,
+              touhyou_n,
+              sansei_n,
+              hantai_n
+            ]
           }
         });
   },
