@@ -71,11 +71,9 @@ var PerformanceHarness = {
 	      collection: "抽出元",
 	      caseIDs: [this.openTestID],
 	    }
-	  },
-	  function () {
-	      this.setupNewTest();
-	    }
-	);
+	  }, function () {
+        console.log("deleteCases");
+      });
   },
  
   runTest: function () {
