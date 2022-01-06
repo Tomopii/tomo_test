@@ -30,7 +30,7 @@ var kDataSetTemplate = {
     name: "{name}",
     collections: [  // There is just one collection
       {
-        name: 'Trials1',
+        name: 'Trials',
         attrs: [
         {name: "Number of Successes"}
         ],
@@ -104,11 +104,11 @@ function requestCreateDataSet(name, template){
   })
 }
 
-function requestUpdateDataSet(name, template){
+function requestCreateCollection(name,Cname, template){
   var dataSetDef = Object.assign({}, template);
   return codapInterface.sendRequest({
     action: 'update',
-    resource: 'dataContext['+name+']',
+    resource: 'dataContext[' + name + '].collection[' + Cname + '],
     values: dataSetDef
   })
 }
@@ -209,8 +209,7 @@ function processInput () {
 }
 
 function test () {
-	requestCreateDataSet(kDataSetName, kDataSetTemplate2);
-	//requestUpdateDataSet('Trials1', kDataSetTemplate2);
+	requestCreateCollection(kDataSetName, kDataSetName, kDataSetTemplate2);
 }
 
 function disableInput() {
