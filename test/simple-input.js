@@ -206,7 +206,8 @@ function processInput () {
 }
 
 function test () {
-	alert("requestCreateDataSet start");
+	alert("requestCreateDataSet start ="+kDataSetName);
+	console.log(kDataSetTemplate2);
 	requestCreateDataSet(kDataSetName, kDataSetTemplate2);
 	alert("requestCreateDataSet end");
 }
