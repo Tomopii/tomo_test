@@ -32,13 +32,24 @@ var kDataSetTemplate = {
       {
         name: 'Trials',
         attrs: [
+        {name: "Number of Successes"}
+        ],
+      }
+    ]
+  };
+var kDataSetTemplate2 = {
+    name: "{name}",
+    collections: [  // There is just one collection
+      {
+        name: 'Trials',
+        attrs: [
         {name: "Number of Successes"},
         {name: "Number of Successes2"}
         ],
       }
     ]
   };
-
+  
 /**
  * myState is a local copy of interactive state.
  *
@@ -192,6 +203,10 @@ function processInput () {
   //tellUser("Thanks, that's all folks!", 'green');
 
   //disableInput();
+}
+
+function test () {
+	equestCreateDataSet(kDataSetName, kDataSetTemplate2);
 }
 
 function disableInput() {
