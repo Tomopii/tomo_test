@@ -112,7 +112,6 @@ function requestCreateDataSet(name, template){
 
 function requestUpdateDataSet(name, template){
   var dataSetDef = Object.assign({}, template);
-  dataSetDef.name = name;
   return codapInterface.sendRequest({
     action: 'update',
     resource: 'dataContext['+name+']',
