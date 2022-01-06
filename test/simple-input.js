@@ -38,8 +38,8 @@ var kDataSetTemplate = {
     ]
   };
 var kDataSetTemplate2 = {
-	 attrs: [
-        name: 'Trials',
+    name: "{name}",
+    attrs: [
         {name: "Number of Successes1"},
         {name: "Number of Successes2"}
         ]
@@ -107,6 +107,7 @@ function requestCreateDataSet(name, template){
 
 function requestCreateCollection(name,Cname, template){
   var dataSetDef = Object.assign({}, template);
+  dataSetDef.name = name;
   return codapInterface.sendRequest({
     action: 'create',
     resource: 'dataContext[' + name + '].collection[' + Cname + ']',
