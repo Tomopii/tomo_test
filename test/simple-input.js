@@ -30,7 +30,7 @@ var kDataSetTemplate = {
     name: "{name}",
     collections: [  // There is just one collection
       {
-        name: 'Trials',
+        name: 'Trials1',
         attrs: [
         {name: "Number of Successes"}
         ],
@@ -209,7 +209,7 @@ function processInput () {
 }
 
 function test () {
-	requestUpdateDataSet(kDataSetName, kDataSetTemplate2);
+	requestUpdateDataSet('Trials1', kDataSetTemplate2);
 }
 
 function disableInput() {
