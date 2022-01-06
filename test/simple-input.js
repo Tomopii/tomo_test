@@ -38,8 +38,7 @@ var kDataSetTemplate = {
     ]
   };
 var kDataSetTemplate2 = {
-	 title:"test title",
-        attrs: [
+	 attrs: [
         {name: "Number of Successes1"},
         {name: "Number of Successes2"}
         ]
