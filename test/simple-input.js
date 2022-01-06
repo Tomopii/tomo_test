@@ -240,29 +240,33 @@ function disableInput() {
 // Here we set up our relationship with CODAP
 //
 // Initialize the codapInterface: we tell it our name, dimensions, version...
-codapInterface.init({
-  name: kDataSetName,
-  title: kAppName,
-  dimensions: {width: 250, height: 120},
-  version: '0.1'
-}).then(function (iResult) {
-  // get interactive state so we can save the sample set index.
-  myState = codapInterface.getInteractiveState();
-  // Determine if CODAP already has the Data Context we need.
-  return requestDataContext(kDataSetName);
-}).then(function (iResult) {
-  // if we did not find a data set, make one
-  if (iResult && !iResult.success) {
-    // If not not found, create it.
-    return requestCreateDataSet(kDataSetName, kDataSetTemplate);
-  } else {
-    // else we are fine as we are, so return a resolved promise.
-    return Promise.resolve(iResult);
-  }
-}).catch(function (msg) {
-  // handle errors
-  console.log(msg);
-});
+function init() {
+	codapInterface.init({
+	  name: kDataSetName,
+	  title: kAppName,
+	  dimensions: {width: 250, height: 120},
+	  version: '0.1'
+	}).then(function (iResult) {
+	  // get interactive state so we can save the sample set index.
+	  myState = codapInterface.getInteractiveState();
+	  // Determine if CODAP already has the Data Context we need.
+	  return requestDataContext(kDataSetName);
+	}).then(function (iResult) {
+	  // if we did not find a data set, make one
+	  if (iResult && !iResult.success) {
+	    // If not not found, create it.
+	    return requestCreateDataSet(kDataSetName, kDataSetTemplate);
+	  } else {
+	    // else we are fine as we are, so return a resolved promise.
+	    return Promise.resolve(iResult);
+	  }
+	}).catch(function (msg) {
+	  // handle errors
+	  console.log(msg);
+	});
+}
+
+init();
 
 document.getElementById('integerInput').onkeypress = function( event) {
   if(event.code === 'Enter')
