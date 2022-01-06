@@ -108,7 +108,7 @@ function requestCreateCollection(name,Cname, template){
   var dataSetDef = Object.assign({}, template);
   return codapInterface.sendRequest({
     action: 'update',
-    resource: 'dataContext[' + name + '].collection[' + Cname + '],
+    resource: 'dataContext[' + name + '].collection[' + Cname + ']',
     values: dataSetDef
   })
 }
