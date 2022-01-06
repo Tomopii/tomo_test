@@ -209,7 +209,8 @@ function processInput () {
 }
 
 function test () {
-	requestUpdateDataSet('Trials1', kDataSetTemplate2);
+	requestCreateDataSet(kDataSetName, kDataSetTemplate2);
+	//requestUpdateDataSet('Trials1', kDataSetTemplate2);
 }
 
 function disableInput() {
