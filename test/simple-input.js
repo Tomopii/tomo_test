@@ -31,8 +31,10 @@ var kDataSetTemplate = {
     collections: [  // There is just one collection
       {
         name: 'Trials',
-        attrs: [ {name: "Number of Successes"}],
-        attrs: [ {name: "Number of Successes2"}],
+        attrs: [
+        {name: "Number of Successes"},
+        {name: "Number of Successes2"}
+        ],
       }
     ]
   };
@@ -187,9 +189,9 @@ function processInput () {
   // send it
   sendItems(kDataSetName, [item]);
 
-  tellUser("Thanks, that's all folks!", 'green');
+  //tellUser("Thanks, that's all folks!", 'green');
 
-  disableInput();
+  //disableInput();
 }
 
 function disableInput() {
