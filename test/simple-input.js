@@ -38,6 +38,7 @@ var kDataSetTemplate = {
     ]
   };
 var kDataSetTemplate2 = {
+    name: "{name}",
     collections: [
       {
         name: 'Trials',
