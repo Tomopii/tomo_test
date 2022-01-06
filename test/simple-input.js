@@ -115,7 +115,9 @@ function requestUpdateDataSet(name, template){
   return codapInterface.sendRequest({
     action: 'update',
     resource: 'dataContext['+name+']',
-    values: dataSetDef
+    "values": {
+	    "title": "A new title for the data set"
+	  }
   })
 }
 
