@@ -111,7 +111,7 @@ function requestCreateDataSet(name, template){
 
 function requestDeleteDataContext(name){
   return codapInterface.sendRequest({
-    action: 'create',
+    action: 'delete',
     resource: 'dataContext[' + name + ']'
   })
 }
