@@ -110,6 +110,16 @@ function requestCreateDataSet(name, template){
   })
 }
 
+function requestUpdateDataSet(name, template){
+  var dataSetDef = Object.assign({}, template);
+  dataSetDef.name = name;
+  return codapInterface.sendRequest({
+    action: 'update',
+    resource: 'dataContext['+name+']',
+    values: dataSetDef
+  })
+}
+
 /**
  * Make a case table if there is not one already. We assume there is only one
  * case table in the CODAP document.
@@ -206,10 +216,9 @@ function processInput () {
 }
 
 function test () {
-	alert("requestCreateDataSet start ="+kDataSetName);
-	console.log(kDataSetTemplate2);
-	requestCreateDataSet(kDataSetName, kDataSetTemplate2);
-	alert("requestCreateDataSet end");
+	alert("start");
+	requestUpdateDataSet(kDataSetName, kDataSetTemplate2);
+	alert("end");
 }
 
 function disableInput() {
