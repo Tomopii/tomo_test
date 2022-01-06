@@ -43,7 +43,8 @@ var kDataSetTemplate2 = {
       {
         name: 'Trials',
         attrs: [
-        {name: "Number of Successes"}
+        {name: "Number of Successes1"},
+        {name: "Number of Successes2"}
         ],
       }
     ]
@@ -222,7 +223,7 @@ function processInput () {
 }
 
 function test () {
-	requestDeleteDataContext(kDataSetName);
+	//requestDeleteDataContext(kDataSetName);
 	requestCreateDataContext(kDataSetName, kDataSetTemplate2);
 }
 
