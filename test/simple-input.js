@@ -206,29 +206,9 @@ function processInput () {
 }
 
 function test () {
-	codapInterface.init({
-	  name: kDataSetName,
-	  title: kAppName,
-	  dimensions: {width: 250, height: 120},
-	  version: '0.1'
-	}).then(function (iResult) {
-	  // get interactive state so we can save the sample set index.
-	  myState = codapInterface.getInteractiveState();
-	  // Determine if CODAP already has the Data Context we need.
-	  return requestDataContext(kDataSetName);
-	}).then(function (iResult) {
-	  // if we did not find a data set, make one
-	  if (iResult && !iResult.success) {
-	    // If not not found, create it.
-	    return requestCreateDataSet(kDataSetName, kDataSetTemplate2);
-	  } else {
-	    // else we are fine as we are, so return a resolved promise.
-	    return Promise.resolve(iResult);
-	  }
-	}).catch(function (msg) {
-	  // handle errors
-	  console.log(msg);
-	});
+	alert("requestCreateDataSet start");
+	requestCreateDataSet(kDataSetName, kDataSetTemplate2);
+	alert("requestCreateDataSet end");
 }
 
 function disableInput() {
