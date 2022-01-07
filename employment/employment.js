@@ -217,7 +217,7 @@ function processInput () {
 		var items = [];
 		$('input:checked').each(function() {
 		    var r = $(this).val();
-		    items.push({ keychg[r]: data[i][r] });
+		    items.push({'+keychg[r]+':data[i][r]});
 		})
 		sendItems(kDataSetName,items);
         }
@@ -246,7 +246,7 @@ function init() {
 	  name: kDataSetName,
 	  title: kAppName,
 	  dimensions: {width: 700, height: 400},
-	  version: '1.5'
+	  version: '1.6'
 	}).then(function (iResult) {
 	  // get interactive state so we can save the sample set index.
 	  myState = codapInterface.getInteractiveState();
