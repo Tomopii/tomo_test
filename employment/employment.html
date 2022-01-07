@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="../Common/js/iframe-phone.js" language="javascript"></script>
+  <script src="../Common/js/CodapInterface.js"></script>
+  <style>
+    body {
+      background-color: white;
+    }
+  </style>
+  <title>就業構造基本調査</title>
+</head>
+
+<body>
+<h1>就業構造基本調査</h1>
+    </br>
+    <div id="check">
+	    <input type="checkbox" name="sample" value="DataSource">データ名称
+	    <input type="checkbox" name="sample" value="Year" checked>調査年
+	    <input type="checkbox" name="sample" value="Prefecture">都道府県符号
+	    <input type="checkbox" name="sample" value="City">政令指定市符号
+	    <input type="checkbox" name="sample" value="Urban">市部符号
+	    <input type="checkbox" name="sample" value="Gender">性別符号
+	</br>
+	    <input type="checkbox" name="sample" value="Age">年齢符号
+	    <input type="checkbox" name="sample" value="WorkStatus">就業状態符号
+	    <input type="checkbox" name="sample" value="WorkEmploy">雇用者符号
+	    <input type="checkbox" name="sample" value="WorkRegular">正規就業者符号
+	    <input type="checkbox" name="sample" value="WorkIndustry">産業符号
+	    <input type="checkbox" name="sample" value="NoworkWish">就業希望符号
+	</br>
+	    <input type="checkbox" name="sample" value="NoworkApply">求職符号
+	    <input type="checkbox" name="sample" value="NoworkAge">非就業者年齢符号
+	    <input type="checkbox" name="sample" value="NoworkMarriage">配偶関係符号
+	    <input type="checkbox" name="sample" value="T_Prefecture" checked>都道府県
+	    <input type="checkbox" name="sample" value="T_City" >政令指定市
+	    <input type="checkbox" name="sample" value="T_Urban" >市部
+	</br>
+	    <input type="checkbox" name="sample" value="T_Gender" checked>性別
+	    <input type="checkbox" name="sample" value="T_Age" checked>年齢
+	    <input type="checkbox" name="sample" value="T_WorkStatus" checked>就業状態
+	    <input type="checkbox" name="sample" value="T_WorkEmploy" checked>雇用者
+	    <input type="checkbox" name="sample" value="T_WorkRegular" >正規就業者
+	    <input type="checkbox" name="sample" value="T_WorkIndustry" checked>産業
+	</br>
+	    <input type="checkbox" name="sample" value="T_NoworkWish" checked>就業希望
+	    <input type="checkbox" name="sample" value="T_NoworkApply" checked>求職
+	    <input type="checkbox" name="sample" value="T_NoworkAge" checked>非就業者年齢
+	    <input type="checkbox" name="sample" value="T_NoworkMarriage" checked>配偶関係
+	    <input type="checkbox" name="sample" value="Weight">集計用乗率
+    </div>
+    <input type="button" id="submitButton2" onClick="make_table();" value="テーブル作成">
+    <select name="dataset" id="dataset">
+        <option value="0">データセット</option>
+        <option value="ippan_1992shugyou_dataset">1992年 就業構造基本調査</option>
+        <option value="ippan_1997shugyou_dataset">1997年 就業構造基本調査</option>
+        <option value="ippan_2002shugyou_dataset">2002年 就業構造基本調査</option>
+        <option value="ippan_2007shugyou_dataset">2007年 就業構造基本調査</option>
+        <option value="ippan_2012shugyou_dataset">2012年 就業構造基本調査</option>
+    </select>
+    <select name="pref_id" id="pref">
+        <option value="00" selected>全都道府県</option>
+        <option value="01">北海道</option>
+        <option value="02">青森県</option>
+        <option value="03">岩手県</option>
+        <option value="04">宮城県</option>
+        <option value="05">秋田県</option>
+        <option value="06">山形県</option>
+        <option value="07">福島県</option>
+        <option value="08">茨城県</option>
+        <option value="09">栃木県</option>
+        <option value="10">群馬県</option>
+        <option value="11">埼玉県</option>
+        <option value="12">千葉県</option>
+        <option value="13">東京都</option>
+        <option value="14">神奈川県</option>
+        <option value="15">新潟県</option>
+        <option value="16">富山県</option>
+        <option value="17">石川県</option>
+        <option value="18">福井県</option>
+        <option value="19">山梨県</option>
+        <option value="20">長野県</option>
+        <option value="21">岐阜県</option>
+        <option value="22">静岡県</option>
+        <option value="23">愛知県</option>
+        <option value="24">三重県</option>
+        <option value="25">滋賀県</option>
+        <option value="26">京都府</option>
+        <option value="27">大阪府</option>
+        <option value="28">兵庫県</option>
+        <option value="29">奈良県</option>
+        <option value="30">和歌山県</option>
+        <option value="31">鳥取県</option>
+        <option value="32">島根県</option>
+        <option value="33">岡山県</option>
+        <option value="34">広島県</option>
+        <option value="35">山口県</option>
+        <option value="36">徳島県</option>
+        <option value="37">香川県</option>
+        <option value="38">愛媛県</option>
+        <option value="39">高知県</option>
+        <option value="40">福岡県</option>
+        <option value="41">佐賀県</option>
+        <option value="42">長崎県</option>
+        <option value="43">熊本県</option>
+        <option value="44">大分県</option>
+        <option value="45">宮崎県</option>
+        <option value="46">鹿児島県</option>
+        <option value="47">沖縄県</option>
+    </select>
+    無作為抽出数 <input type="text" size=5 maxlength=5 id = "limit" name="limit" value = 100>個
+    </br>
+    <label>test:<input type="text" size="1" id="integerInput" value=""></label><br>
+    <input type="button" id="submitButton" onClick="processInput();" value="データー追加">
+  <script src="employment.js"></script>
+</body>
+</html>
