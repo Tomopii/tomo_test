@@ -1,4 +1,4 @@
-
+var data;
 var keychg = {'DataSource':'データ名称','Year' :'調査年','Prefecture':'都道府県符号','City':'政令指定市符号','Urban':'市部符号','Gender':'性別符号','Age':'年齢符号','WorkStatus':'就業状態符号','WorkEmploy':'雇用者符号','WorkRegular':'正規就業者符号','WorkIndustry':'産業符号','NoworkWish':'就業希望符号','NoworkApply':'求職符号','NoworkAge':'非就業者年齢符号','NoworkMarriage':'配偶関係符号','T_Prefecture' :'都道府県','T_City' :'政令指定市','T_Urban' :'市部','T_Gender' :'性別','T_Age' :'年齢','T_WorkStatus' :'就業状態','T_WorkEmploy' :'雇用者','T_WorkRegular' :'正規就業者','T_WorkIndustry' :'産業','T_NoworkWish' :'就業希望','T_NoworkApply' :'求職','T_NoworkAge' :'非就業者年齢','T_NoworkMarriage' :'配偶関係','Weight':'集計用乗率'};
 
 var kDataSetName = 'employment',
@@ -28,8 +28,27 @@ function set_kDataSetTemplate_attrs() {
             kDataSetTemplate.collections[0].attrs.push({name:keychg[r]});
         });
 }
-  
-  
+
+function data_input() {
+	get_musakui($("#dataset").val(),$("#pref").val(),Number($("#limit").val()));
+}
+
+function get_musakui(dataset,pref,limit) {
+    var param = { "dataset":dataset,"pref":pref,"limit": limit};
+    $.ajax({
+        type: "GET",
+        url: "https://playground.little-studios.co.jp/tomo/musakui/musakui_db.php",
+        data: param,
+        crossDomain: true,
+        dataType : "json",
+        scriptCharset: 'utf-8'
+    }).done(function(json){
+        data = json.ret;
+        processInput();
+    }).fail(function(XMLHttpRequest, textStatus, errorThrown){
+        alert(errorThrown);
+    });
+}
 
 
 /**
@@ -192,10 +211,17 @@ function processInput () {
   }
 
   myState.didProperlyInput = true;
-
-  var item = { "Number of Successes": 123 };
-  sendItems(kDataSetName, [item]);
-
+  
+    for(var i = 0; i < data.length; i++) {
+        if(i != 0) {
+		var items = [];
+		$('input:checked').each(function() {
+		    var r = $(this).val();
+		    items.push({ keychg[r]: data[i][r] });
+		})
+		sendItems(kDataSetName,items);
+        }
+    }
   requestCreateCaseTable();
 }
 
@@ -220,7 +246,7 @@ function init() {
 	  name: kDataSetName,
 	  title: kAppName,
 	  dimensions: {width: 700, height: 400},
-	  version: '1.4'
+	  version: '1.5'
 	}).then(function (iResult) {
 	  // get interactive state so we can save the sample set index.
 	  myState = codapInterface.getInteractiveState();
