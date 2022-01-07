@@ -2,12 +2,12 @@ var data;
 var keychg = { 'batting_id':'打球ID', 'speed':'打球速度', 'angle':'打球角度', 'result':'打席結果'};
 
 var kDataSetName = 'barrel',
-    kAppName = "野球バレル調査";
+    kAppName = "プロ野球バレル調査";
 // The following is the initial structure of the data set that the plugin will
 // refer to. It will look for it at startup and create it if not found.
 var kDataSetTemplate = {
     name: "{name}",
-    title: '野球バレル調査データ',
+    title: 'プロ野球バレル調査データ',
     collections: [  // There is just one collection
       {
         name: 'barrel',
@@ -247,7 +247,7 @@ function init() {
 	  name: kDataSetName,
 	  title: kAppName,
 	  dimensions: {width: 700, height: 400},
-	  version: '1.2'
+	  version: '1.3'
 	}).then(function (iResult) {
 	  // get interactive state so we can save the sample set index.
 	  myState = codapInterface.getInteractiveState();
