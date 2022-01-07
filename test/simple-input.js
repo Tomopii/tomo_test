@@ -31,6 +31,7 @@ var kDataSetTemplate = {
     collections: [  // There is just one collection
       {
         name: 'Trials',
+        title: 'test1 title',
         attrs: [
         {name: "Number of Successes"}
         ],
@@ -43,6 +44,9 @@ var kDataSetTemplate = {
         {name: "Number of Successes1"},
         {name: "Number of Successes2"}
         ],
+  };
+ var collectionTemplate2 = {
+        title: 'test2 title',
   };
   
 /**
@@ -218,7 +222,7 @@ function processInput () {
 
 function test () {
 	//requestDeleteDataContext(kDataSetName);
-	requestUpdateCollection(kDataSetName,  'Trials', collectionTemplate);
+	requestUpdateCollection(kDataSetName,  'Trials', collectionTemplate2);
 }
 
 function disableInput() {
