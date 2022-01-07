@@ -219,9 +219,10 @@ function processInput () {
 		    var r = $(this).val();
 		    var item = {};
 		    item[keychg[r]] = data[i][r];
+		    items.push(item);
 		})
 		if(i == 1) console.log(items);
-		//sendItems(kDataSetName,items);
+		sendItems(kDataSetName,items);
         }
     }
 }
@@ -247,7 +248,7 @@ function init() {
 	  name: kDataSetName,
 	  title: kAppName,
 	  dimensions: {width: 700, height: 400},
-	  version: '1.9'
+	  version: '2.0'
 	}).then(function (iResult) {
 	  // get interactive state so we can save the sample set index.
 	  myState = codapInterface.getInteractiveState();
