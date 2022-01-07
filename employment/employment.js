@@ -1,45 +1,26 @@
 
-var kDataSetName = 'Trials',
+var kDataSetName = 'employment',
     kAppName = "就業構造基本調査";
 // The following is the initial structure of the data set that the plugin will
 // refer to. It will look for it at startup and create it if not found.
 var kDataSetTemplate = {
     name: "{name}",
+    title: '就業構造基本調査データ',
     collections: [  // There is just one collection
       {
         name: 'Trials',
-        title: 'test1 title',
         attrs: [
-        {name: "Number of Successes"},
-        {name: "Number of Successes2"}
-        ],
-      }
-    ]
-  };
-var kDataSetTemplate2 = {
-    name: "{name}",
-    collections: [  // There is just one collection
-      {
-        name: 'Trials',
-        title: 'test1 title',
-        attrs: [
-        {name: "Number of Successes"},
-        {name: "Number of Successes2"},
-        {name: "Number of Successes3"}
         ],
       }
     ]
   };
   
-  var collectionTemplate = {
-        attrs: [
-        {name: "Number of Successes1"},
-        {name: "Number of Successes2"}
-        ],
-  };
- var collectionTemplate2 = {
-        title: 'test2 title',
-  };
+function set_kDataSetTemplate_attrs() {
+	kDataSetTemplate.collections[0].attrs.push({name: "Number of Successes"});
+	kDataSetTemplate.collections[0].attrs.push({name: "Number of Successes2"});
+	kDataSetTemplate.collections[0].attrs.push({name: "Number of Successes3"});
+	kDataSetTemplate.collections[0].attrs.push({name: "Number of Successes4"});
+}
   
 /**
  * myState is a local copy of interactive state.
@@ -210,7 +191,8 @@ function processInput () {
 
 function make_table() {
 	requestDeleteDataContext(kDataSetName);
-	requestCreateDataSet(kDataSetName, kDataSetTemplate2);
+	set_kDataSetTemplate_attrs();
+	requestCreateDataSet(kDataSetName, kDataSetTemplate);
 	requestCreateCaseTable();
 }
 
@@ -228,7 +210,7 @@ function init() {
 	  name: kDataSetName,
 	  title: kAppName,
 	  dimensions: {width: 700, height: 400},
-	  version: '1.2'
+	  version: '1.3'
 	}).then(function (iResult) {
 	  // get interactive state so we can save the sample set index.
 	  myState = codapInterface.getInteractiveState();
@@ -238,6 +220,7 @@ function init() {
 	  // if we did not find a data set, make one
 	  if (iResult && !iResult.success) {
 	    // If not not found, create it.
+	    set_kDataSetTemplate_attrs();
 	    return requestCreateDataSet(kDataSetName, kDataSetTemplate);
 	  } else {
 	    // else we are fine as we are, so return a resolved promise.
