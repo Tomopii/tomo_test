@@ -3,6 +3,7 @@ var keychg1 = {'DataSource':'データ名称','Year' :'調査年','Prefecture':'
 var keychg2 = {'T_San123':'産業符号','T_Syokugyo':'職業符号（産業符号）','T_KiKibo':'企業規模（産業符号）','T_Age_10':'年齢階級','Weight':'集計用乗率','Y_Income':'年間収入','L_Expenditure':'消費支出','Food':'食料','Housing':'住居','LFW':'光熱・水道','Furniture':'家具・家事用品','Clothes':'被服及び履物','Health':'保健医療','Transport':'交通・通信','Education':'教育','Recreation':'教養娯楽','OL_Expenditure':'その他の消費支出'};
 var keychg3 = {'3City':'３大都市圏か否か','T_SeJinin':'世帯人員','T_SyuJinin':'就業人員','T_JuSyoyu':'住宅の所有関係','T_Syuhi':'就業・非就業の別','T_Age_5s':'年齢階級２','T_Age_65':'年齢階級１','Weight':'集計用乗率','Y_Income':'年間収入','L_Expenditure':'消費支出','Food':'食料','Housing':'住居','LFW':'光熱・水道','Furniture':'家具・家事用品','Clothes':'被服及び履物','Health':'保健医療','Transport':'交通・通信','Education':'教育','Recreation':'教養娯楽','OL_Expenditure':'その他の消費支出'};
 var keychg = keychg1;
+var checkDt = '#check input:checked';
 
 var kDataSetName = 'employment',
     kAppName = "就業構造基本調査";
@@ -26,6 +27,7 @@ $(function () {
 
 function select_chousa1() {
 	keychg = keychg1;
+	checkDt = '#check input:checked';
 	$("#chousa1").show();
 	$("#chousa2").hide();
 	$("#chousa3").hide();
@@ -33,6 +35,7 @@ function select_chousa1() {
 
 function select_chousa2() {
 	keychg = keychg2;
+	checkDt = '#check2 input:checked';
 	$("#chousa1").hide();
 	$("#chousa2").show();
 	$("#chousa3").hide();
@@ -40,6 +43,7 @@ function select_chousa2() {
 
 function select_chousa3() {
 	keychg = keychg3;
+	checkDt = '#check3 input:checked';
 	$("#chousa1").hide();
 	$("#chousa2").hide();
 	$("#chousa3").show();
@@ -47,7 +51,7 @@ function select_chousa3() {
 
 function set_kDataSetTemplate_attrs() {
 	kDataSetTemplate.collections[0].attrs = [];
-	$('#check input:checked').each(function() {
+	$(checkDt).each(function() {
             var r = $(this).val();
             kDataSetTemplate.collections[0].attrs.push({name:keychg[r]});
         });
@@ -278,7 +282,7 @@ function processInput () {
 	var items = [];
 	for(var i = 0; i < data.length; i++) {	
 		var item = {};
-		$('#check input:checked').each(function() {
+		$(checkDt).each(function() {
 		    var r = $(this).val();
 		    item[keychg[r]] = data[i][r];
 		})
