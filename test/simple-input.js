@@ -37,17 +37,12 @@ var kDataSetTemplate = {
       }
     ]
   };
-var kDataSetTemplate2 = {
-    name: "{name}",
-    collections: [  // There is just one collection
-      {
-        name: 'Trials',
+  
+  var collectionTemplate = {
         attrs: [
         {name: "Number of Successes1"},
         {name: "Number of Successes2"}
         ],
-      }
-    ]
   };
   
 /**
@@ -117,12 +112,11 @@ function requestDeleteDataContext(name){
   })
 }
 
-function requestCreateDataContext(name, template){
+function requestUpdateCollection(name, Cname,template){
   var dataSetDef = Object.assign({}, template);
-  dataSetDef.name = name;
   return codapInterface.sendRequest({
-    action: 'create',
-    resource: 'dataContext[' + name + ']',
+    action: 'update',
+    resource: "dataContext["+name+"].collection["+Cname+"]",
     values: dataSetDef
   })
 }
@@ -224,7 +218,7 @@ function processInput () {
 
 function test () {
 	//requestDeleteDataContext(kDataSetName);
-	requestCreateDataContext(kDataSetName, kDataSetTemplate2);
+	requestUpdateCollection(kDataSetName,  'Trials', collectionTemplate);
 }
 
 function disableInput() {
