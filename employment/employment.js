@@ -1,6 +1,6 @@
 
 var kDataSetName = 'Trials',
-    kAppName = "Simple Input";
+    kAppName = "èAã∆ç\ë¢äÓñ{í≤ç∏";
 // The following is the initial structure of the data set that the plugin will
 // refer to. It will look for it at startup and create it if not found.
 var kDataSetTemplate = {
@@ -228,7 +228,7 @@ function init() {
 	  name: kDataSetName,
 	  title: kAppName,
 	  dimensions: {width: 800, height: 400},
-	  version: '0.1'
+	  version: '1.0'
 	}).then(function (iResult) {
 	  // get interactive state so we can save the sample set index.
 	  myState = codapInterface.getInteractiveState();
