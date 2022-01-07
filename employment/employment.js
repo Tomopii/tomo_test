@@ -30,6 +30,7 @@ function set_kDataSetTemplate_attrs() {
 }
 
 function data_input() {
+	if(Number($("#limit").val()) > 1000) Number($("#limit").val(1000);
 	get_musakui($("#dataset").val(),$("#pref").val(),Number($("#limit").val()));
 }
 
@@ -244,7 +245,7 @@ function init() {
 	  name: kDataSetName,
 	  title: kAppName,
 	  dimensions: {width: 700, height: 400},
-	  version: '2.3'
+	  version: '2.4'
 	}).then(function (iResult) {
 	  // get interactive state so we can save the sample set index.
 	  myState = codapInterface.getInteractiveState();
