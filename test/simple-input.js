@@ -117,11 +117,13 @@ function requestDataContext(name) {
 function requestCreateDataSet(name, template){
   var dataSetDef = Object.assign({}, template);
   dataSetDef.name = name;
-  return codapInterface.sendRequest({
+  await codapInterface.sendRequest({
     action: 'create',
     resource: 'dataContext',
     values: dataSetDef
-  })
+  });
+  
+  requestCreateCaseTable();
 }
 
 function requestDeleteDataContext(name){
@@ -138,6 +140,20 @@ function requestUpdateCollection(name, Cname,template){
     resource: "dataContext["+name+"].collection["+Cname+"]",
     values: dataSetDef
   })
+}
+
+function requestCreateCaseTable() {
+    const theMessage = {
+      action : "create",
+      resource : "component",
+      values : {
+        type : 'caseTable',
+        dataContext : 'Trials',
+        name : 'Trials',
+        cannotClose : true
+      }
+    };
+    await codapInterface.sendRequest(theMessage);
 }
 
 /**
