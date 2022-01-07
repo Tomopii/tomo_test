@@ -117,13 +117,13 @@ function requestDataContext(name) {
 function requestCreateDataSet(name, template){
   var dataSetDef = Object.assign({}, template);
   dataSetDef.name = name;
-  await codapInterface.sendRequest({
+  return codapInterface.sendRequest({
     action: 'create',
     resource: 'dataContext',
     values: dataSetDef
   });
   
-  requestCreateCaseTable();
+  //requestCreateCaseTable();
 }
 
 function requestDeleteDataContext(name){
