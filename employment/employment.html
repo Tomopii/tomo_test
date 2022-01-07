@@ -14,8 +14,7 @@
 
 <body>
 <h1>就業構造基本調査</h1>
-    </br>
-    <div id="check">
+	<div id="check">
 	    <input type="checkbox" name="sample" value="DataSource">データ名称
 	    <input type="checkbox" name="sample" value="Year" checked>調査年
 	    <input type="checkbox" name="sample" value="Prefecture">都道府県符号
@@ -49,10 +48,11 @@
 	    <input type="checkbox" name="sample" value="T_NoworkAge" checked>非就業者年齢
 	    <input type="checkbox" name="sample" value="T_NoworkMarriage" checked>配偶関係
 	    <input type="checkbox" name="sample" value="Weight">集計用乗率
-    </div>
+	</div>
     <input type="button" id="submitButton2" onClick="make_table();" value="テーブル作成">
+</br>
     <select name="dataset" id="dataset">
-        <option value="0">データセット</option>
+        <option value="0">年度選択</option>
         <option value="ippan_1992shugyou_dataset">1992年 就業構造基本調査</option>
         <option value="ippan_1997shugyou_dataset">1997年 就業構造基本調査</option>
         <option value="ippan_2002shugyou_dataset">2002年 就業構造基本調査</option>
@@ -111,7 +111,6 @@
     </select>
     無作為抽出数 <input type="text" size=5 maxlength=5 id = "limit" name="limit" value = 100>個
     </br>
-    <label>test:<input type="text" size="1" id="integerInput" value=""></label><br>
     <input type="button" id="submitButton" onClick="processInput();" value="データー追加">
   <script src="employment.js"></script>
 </body>
