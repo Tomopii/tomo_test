@@ -257,6 +257,7 @@ function test1 () {
 
 function test2 () {
 	requestCreateDataSet(kDataSetName, kDataSetTemplate2);
+	requestCreateCaseTable();
 }
 
 function disableInput() {
@@ -295,7 +296,6 @@ function init() {
 }
 
 init();
-requestCreateCaseTable();
 
 document.getElementById('integerInput').onkeypress = function( event) {
   if(event.code === 'Enter')
