@@ -153,7 +153,7 @@ function requestCreateCaseTable() {
         cannotClose : true
       }
     };
-    await codapInterface.sendRequest(theMessage);
+    return codapInterface.sendRequest(theMessage);
 }
 
 /**
@@ -295,6 +295,7 @@ function init() {
 }
 
 init();
+requestCreateCaseTable();
 
 document.getElementById('integerInput').onkeypress = function( event) {
   if(event.code === 'Enter')
