@@ -23,10 +23,9 @@ $(function () {
 
 function set_kDataSetTemplate_attrs() {
 	kDataSetTemplate.collections[0].attrs = [];
-	$('input:checked').each(function() {
-            var r = $(this).val();
-            kDataSetTemplate.collections[0].attrs.push({name:keychg[r]});
-        });
+	keychg.forEach(function(key) {
+	    kDataSetTemplate.collections[0].attrs.push({name:key});
+	})
 }
 
 function data_input() {
@@ -248,7 +247,7 @@ function init() {
 	  name: kDataSetName,
 	  title: kAppName,
 	  dimensions: {width: 700, height: 400},
-	  version: '1.1'
+	  version: '1.2'
 	}).then(function (iResult) {
 	  // get interactive state so we can save the sample set index.
 	  myState = codapInterface.getInteractiveState();
