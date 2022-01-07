@@ -47,7 +47,7 @@ function select_chousa3() {
 
 function set_kDataSetTemplate_attrs() {
 	kDataSetTemplate.collections[0].attrs = [];
-	$('input:checked').each(function() {
+	$('#check input:checked').each(function() {
             var r = $(this).val();
             kDataSetTemplate.collections[0].attrs.push({name:keychg[r]});
         });
@@ -278,7 +278,7 @@ function processInput () {
 	var items = [];
 	for(var i = 0; i < data.length; i++) {	
 		var item = {};
-		$('input:checked').each(function() {
+		$('#check input:checked').each(function() {
 		    var r = $(this).val();
 		    item[keychg[r]] = data[i][r];
 		})
@@ -308,7 +308,7 @@ function init() {
 	  name: kDataSetName,
 	  title: kAppName,
 	  dimensions: {width: 700, height: 400},
-	  version: '3.1'
+	  version: '3.2'
 	}).then(function (iResult) {
 	  // get interactive state so we can save the sample set index.
 	  myState = codapInterface.getInteractiveState();
