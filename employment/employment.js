@@ -1,5 +1,8 @@
 var data;
-var keychg = {'DataSource':'データ名称','Year' :'調査年','Prefecture':'都道府県符号','City':'政令指定市符号','Urban':'市部符号','Gender':'性別符号','Age':'年齢符号','WorkStatus':'就業状態符号','WorkEmploy':'雇用者符号','WorkRegular':'正規就業者符号','WorkIndustry':'産業符号','NoworkWish':'就業希望符号','NoworkApply':'求職符号','NoworkAge':'非就業者年齢符号','NoworkMarriage':'配偶関係符号','T_Prefecture' :'都道府県','T_City' :'政令指定市','T_Urban' :'市部','T_Gender' :'性別','T_Age' :'年齢','T_WorkStatus' :'就業状態','T_WorkEmploy' :'雇用者','T_WorkRegular' :'正規就業者','T_WorkIndustry' :'産業','T_NoworkWish' :'就業希望','T_NoworkApply' :'求職','T_NoworkAge' :'非就業者年齢','T_NoworkMarriage' :'配偶関係','Weight':'集計用乗率'};
+var keychg1 = {'DataSource':'データ名称','Year' :'調査年','Prefecture':'都道府県符号','City':'政令指定市符号','Urban':'市部符号','Gender':'性別符号','Age':'年齢符号','WorkStatus':'就業状態符号','WorkEmploy':'雇用者符号','WorkRegular':'正規就業者符号','WorkIndustry':'産業符号','NoworkWish':'就業希望符号','NoworkApply':'求職符号','NoworkAge':'非就業者年齢符号','NoworkMarriage':'配偶関係符号','T_Prefecture' :'都道府県','T_City' :'政令指定市','T_Urban' :'市部','T_Gender' :'性別','T_Age' :'年齢','T_WorkStatus' :'就業状態','T_WorkEmploy' :'雇用者','T_WorkRegular' :'正規就業者','T_WorkIndustry' :'産業','T_NoworkWish' :'就業希望','T_NoworkApply' :'求職','T_NoworkAge' :'非就業者年齢','T_NoworkMarriage' :'配偶関係','Weight':'集計用乗率'};
+var keychg2 = {'T_San123':'産業符号','T_Syokugyo':'職業符号（産業符号）','T_KiKibo':'企業規模（産業符号）','T_Age_10':'年齢階級','Weight':'集計用乗率','Y_Income':'年間収入','L_Expenditure':'消費支出','Food':'食料','Housing':'住居','LFW':'光熱・水道','Furniture':'家具・家事用品','Clothes':'被服及び履物','Health':'保健医療','Transport':'交通・通信','Education':'教育','Recreation':'教養娯楽','OL_Expenditure':'その他の消費支出'};
+var keychg3 = {'3City':'３大都市圏か否か','T_SeJinin':'世帯人員','T_SyuJinin':'就業人員','T_JuSyoyu':'住宅の所有関係','T_Syuhi':'就業・非就業の別','T_Age_5s':'年齢階級２','T_Age_65':'年齢階級１','Weight':'集計用乗率','Y_Income':'年間収入','L_Expenditure':'消費支出','Food':'食料','Housing':'住居','LFW':'光熱・水道','Furniture':'家具・家事用品','Clothes':'被服及び履物','Health':'保健医療','Transport':'交通・通信','Education':'教育','Recreation':'教養娯楽','OL_Expenditure':'その他の消費支出'};
+var keychg;
 
 var kDataSetName = 'employment',
     kAppName = "就業構造基本調査";
@@ -21,6 +24,27 @@ $(function () {
     init();
 });
 
+function select_chousa1() {
+	keychg = keychg1;
+	$("#chousa1").show();
+	$("#chousa2").hide();
+	$("#chousa3").hide();
+}
+
+function select_chousa2() {
+	keychg = keychg2;
+	$("#chousa1").hide();
+	$("#chousa2").show();
+	$("#chousa3").hide();
+}
+
+function select_chousa3() {
+	keychg = keychg3;
+	$("#chousa1").hide();
+	$("#chousa2").hide();
+	$("#chousa3").show();
+}
+
 function set_kDataSetTemplate_attrs() {
 	kDataSetTemplate.collections[0].attrs = [];
 	$('input:checked').each(function() {
@@ -30,8 +54,16 @@ function set_kDataSetTemplate_attrs() {
 }
 
 function data_input() {
-	if(Number($("#limit").val()) > 1000) $("#limit").val(1000);
+	if(Number($("#limit").val()) > 2000) $("#limit").val(2000);
 	get_musakui($("#dataset").val(),$("#pref").val(),Number($("#limit").val()));
+}
+function data_input2() {
+	if(Number($("#limit").val()) > 2000) $("#limit").val(2000);
+	get_musakui2(Number($("#limit2").val()));
+}
+function data_input3() {
+	if(Number($("#limit").val()) > 2000) $("#limit").val(2000);
+	get_musakui3(Number($("#limit3").val()));
 }
 
 function get_musakui(dataset,pref,limit) {
@@ -50,7 +82,38 @@ function get_musakui(dataset,pref,limit) {
         alert(errorThrown);
     });
 }
-
+function get_musakui2(limit) {
+    var param = { "limit": limit};
+    $.ajax({
+        type: "GET",
+        url: "https://playground.little-studios.co.jp/tomo/musakui/zensho_k.php",
+        data: param,
+        crossDomain: true,
+        dataType : "json",
+        scriptCharset: 'utf-8'
+    }).done(function(json){
+        data = json.ret;
+        processInput();
+    }).fail(function(XMLHttpRequest, textStatus, errorThrown){
+        alert(errorThrown);
+    });
+}
+function get_musakui3(limit) {
+    var param = { "limit": limit};
+    $.ajax({
+        type: "GET",
+        url: "https://playground.little-studios.co.jp/tomo/musakui/zensho_z.php",
+        data: param,
+        crossDomain: true,
+        dataType : "json",
+        scriptCharset: 'utf-8'
+    }).done(function(json){
+        data = json.ret;
+        processInput();
+    }).fail(function(XMLHttpRequest, textStatus, errorThrown){
+        alert(errorThrown);
+    });
+}
 
 /**
  * myState is a local copy of interactive state.
@@ -245,7 +308,7 @@ function init() {
 	  name: kDataSetName,
 	  title: kAppName,
 	  dimensions: {width: 700, height: 400},
-	  version: '2.5'
+	  version: '3.0'
 	}).then(function (iResult) {
 	  // get interactive state so we can save the sample set index.
 	  myState = codapInterface.getInteractiveState();

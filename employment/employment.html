@@ -10,11 +10,21 @@
     body {
       background-color: white;
     }
+    #chousa2 {
+          display: none;
+      }
+    #chousa3 {
+          display: none;
+      }
   </style>
   <title>就業構造基本調査</title>
 </head>
 
 <body>
+<input type="button" id="select_chousa1" onClick="select_chousa1();" value="就業構造基本調査">
+<input type="button" id="select_chousa2" onClick="select_chousa2();" value="全国消費実態調査（勤労者世帯）">
+<input type="button" id="select_chousa3" onClick="select_chousa3();" value="平成21年全国消費実態調査">
+<div id="chousa1">
 <h1>就業構造基本調査</h1>
 	<div id="check">
 	    <input type="checkbox" name="sample" value="DataSource">データ名称
@@ -51,7 +61,7 @@
 	    <input type="checkbox" name="sample" value="T_NoworkMarriage" checked>配偶関係
 	    <input type="checkbox" name="sample" value="Weight">集計用乗率
 	</div>
-    <input type="button" id="submitButton2" onClick="make_table();" value="テーブル作成"> ※データーはクリアされます。
+    <input type="button" id="submitButton1_1" onClick="make_table();" value="テーブル作成"> ※データーはクリアされます。
 </br></br>
     <select name="dataset" id="dataset">
         <option value="0">年度選択</option>
@@ -111,8 +121,72 @@
         <option value="46">鹿児島県</option>
         <option value="47">沖縄県</option>
     </select>
-    無作為抽出数 <input type="text" size=4 maxlength=4 id = "limit" name="limit" value = 100>個 (max 1000個)
+    無作為抽出数 <input type="text" size=4 maxlength=4 id = "limit" name="limit" value = 100>個 (max 2000個)
     </br>
-    <input type="button" id="submitButton" onClick="data_input();" value="データー追加">
+    <input type="button" id="submitButton1_2" onClick="data_input();" value="データー追加">
+</div>
+<div id="chousa2">
+<h1>全国消費実態調査（勤労者世帯）</h1>
+    <div id="check2">
+	    <input type="checkbox" name="sample" value="T_San123" checked>産業符号
+	    <input type="checkbox" name="sample" value="T_Syokugyo" checked>職業符号（産業符号）
+	    <input type="checkbox" name="sample" value="T_KiKibo" checked>企業規模（産業符号）
+	    <input type="checkbox" name="sample" value="T_Age_10" checked>年齢階級
+	    <input type="checkbox" name="sample" value="Weight" checked>集計用乗率
+	    <input type="checkbox" name="sample" value="Y_Income" checked>年間収入
+	</br>
+	    <input type="checkbox" name="sample" value="L_Expenditure" checked>消費支出
+	    <input type="checkbox" name="sample" value="Food" checked>食料
+	    <input type="checkbox" name="sample" value="Housing" checked>住居
+	    <input type="checkbox" name="sample" value="LFW" checked>光熱・水道
+	    <input type="checkbox" name="sample" value="Furniture" checked>家具・家事用品
+	    <input type="checkbox" name="sample" value="Clothes" checked>被服及び履物
+	</br>
+	    <input type="checkbox" name="sample" value="Health" checked>保健医療
+	    <input type="checkbox" name="sample" value="Transport" checked>交通・通信
+	    <input type="checkbox" name="sample" value="Education" checked>教育
+	    <input type="checkbox" name="sample" value="Recreation" checked>教養娯楽
+	    <input type="checkbox" name="sample" value="OL_Expenditure" checked>その他の消費支出
+    </div>
+    <input type="button" id="submitButton2_1" onClick="make_table();" value="テーブル作成"> ※データーはクリアされます。
+    </br></br>
+        無作為抽出数 <input type="text" size=4 maxlength=4 id = "limit2" name="limit2" value = 100>個 (max 2000個)
+    </br>
+    <input type="button" id="submitButton2_2" onClick="data_input2();" value="データー追加">
+</div>
+<div id="chousa3">
+<h1>平成21年全国消費実態調査</h1>
+    <div id="check3">
+	    <input type="checkbox" name="sample" value="3City" checked>３大都市圏か否か
+	    <input type="checkbox" name="sample" value="T_SeJinin" checked>世帯人員
+	    <input type="checkbox" name="sample" value="T_SyuJinin" checked>就業人員
+	    <input type="checkbox" name="sample" value="T_JuSyoyu" checked>住宅の所有関係
+	    <input type="checkbox" name="sample" value="T_Syuhi" checked>就業・非就業の別
+	    <input type="checkbox" name="sample" value="T_Age_5s" checked>年齢階級２
+	</br>
+	    <input type="checkbox" name="sample" value="T_Age_65" checked>年齢階級１
+	    <input type="checkbox" name="sample" value="Weight" checked>集計用乗率
+	    <input type="checkbox" name="sample" value="Y_Income" checked>年間収入
+	    <input type="checkbox" name="sample" value="L_Expenditure" checked>消費支出
+	    <input type="checkbox" name="sample" value="Food" checked>食料
+	    <input type="checkbox" name="sample" value="Housing" checked>住居
+	</br>
+	    <input type="checkbox" name="sample" value="LFW" checked>光熱・水道
+	    <input type="checkbox" name="sample" value="Furniture" checked>家具・家事用品
+	    <input type="checkbox" name="sample" value="Clothes" checked>被服及び履物
+	    <input type="checkbox" name="sample" value="Health" checked>保健医療
+	    <input type="checkbox" name="sample" value="Transport" checked>交通・通信
+	    <input type="checkbox" name="sample" value="Education" checked>教育
+	</br>
+	    <input type="checkbox" name="sample" value="Recreation" checked>教養娯楽
+	    <input type="checkbox" name="sample" value="OL_Expenditure" checked>その他の消費支出
+    </div>
+    <input type="button" id="submitButton3_1" onClick="make_table();" value="テーブル作成"> ※データーはクリアされます。
+    </br></br>
+        無作為抽出数 <input type="text" size=4 maxlength=4 id = "limit3" name="limit3" value = 100>個 (max 2000個)
+    </br>
+    <input type="button" id="submitButton3_2" onClick="data_input3();" value="データー追加">
+    </br>
+</div>
 </body>
 </html>
