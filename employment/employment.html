@@ -49,8 +49,8 @@
 	    <input type="checkbox" name="sample" value="T_NoworkMarriage" checked>配偶関係
 	    <input type="checkbox" name="sample" value="Weight">集計用乗率
 	</div>
-    <input type="button" id="submitButton2" onClick="make_table();" value="テーブル作成">
-</br>
+    <input type="button" id="submitButton2" onClick="make_table();" value="テーブル作成"> ※データーはクリアされます。
+</br></br>
     <select name="dataset" id="dataset">
         <option value="0">年度選択</option>
         <option value="ippan_1992shugyou_dataset">1992年 就業構造基本調査</option>
@@ -110,7 +110,7 @@
         <option value="47">沖縄県</option>
     </select>
     無作為抽出数 <input type="text" size=5 maxlength=5 id = "limit" name="limit" value = 100>個
-    </br></br>
+    </br>
     <input type="button" id="submitButton" onClick="processInput();" value="データー追加">
   <script src="employment.js"></script>
 </body>
