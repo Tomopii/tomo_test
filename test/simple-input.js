@@ -247,15 +247,13 @@ function processInput () {
   sendItems(kDataSetName, [item]);
 
   //tellUser("Thanks, that's all folks!", 'green');
-
   //disableInput();
+  
+  requestCreateCaseTable();
 }
 
 function test1 () {
 	requestDeleteDataContext(kDataSetName);
-}
-
-function test2 () {
 	requestCreateDataSet(kDataSetName, kDataSetTemplate2);
 	requestCreateCaseTable();
 }
