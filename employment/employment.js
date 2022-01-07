@@ -210,21 +210,19 @@ function processInput () {
     myState.didProperlyInput = false;
   }
 
-  myState.didProperlyInput = true;
-  
-    for(var i = 0; i < data.length; i++) {
-        if(i != 0) {
-		var items = [];
-		$('input:checked').each(function() {
-		    var r = $(this).val();
-		    var item = {};
-		    item[keychg[r]] = data[i][r];
-		    items.push(item);
-		})
-		if(i == 1) console.log(items);
-		sendItems(kDataSetName,items);
-        }
-    }
+	myState.didProperlyInput = true;
+	var items = [];
+	for(var i = 0; i < data.length; i++) {
+		if(i != 0) {		
+			var item = {};
+			$('input:checked').each(function() {
+			    var r = $(this).val();
+			    item[keychg[r]] = data[i][r];
+			    items.push(item);
+			})
+		}
+	}
+	sendItems(kDataSetName,items);
 }
 
 function make_table() {
@@ -248,7 +246,7 @@ function init() {
 	  name: kDataSetName,
 	  title: kAppName,
 	  dimensions: {width: 700, height: 400},
-	  version: '2.0'
+	  version: '2.1'
 	}).then(function (iResult) {
 	  // get interactive state so we can save the sample set index.
 	  myState = codapInterface.getInteractiveState();
