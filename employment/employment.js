@@ -1,4 +1,6 @@
 
+var keychg = {'DataSource':'データ名称','Year' :'調査年','Prefecture':'都道府県符号','City':'政令指定市符号','Urban':'市部符号','Gender':'性別符号','Age':'年齢符号','WorkStatus':'就業状態符号','WorkEmploy':'雇用者符号','WorkRegular':'正規就業者符号','WorkIndustry':'産業符号','NoworkWish':'就業希望符号','NoworkApply':'求職符号','NoworkAge':'非就業者年齢符号','NoworkMarriage':'配偶関係符号','T_Prefecture' :'都道府県','T_City' :'政令指定市','T_Urban' :'市部','T_Gender' :'性別','T_Age' :'年齢','T_WorkStatus' :'就業状態','T_WorkEmploy' :'雇用者','T_WorkRegular' :'正規就業者','T_WorkIndustry' :'産業','T_NoworkWish' :'就業希望','T_NoworkApply' :'求職','T_NoworkAge' :'非就業者年齢','T_NoworkMarriage' :'配偶関係','Weight':'集計用乗率'};
+
 var kDataSetName = 'employment',
     kAppName = "就業構造基本調査";
 // The following is the initial structure of the data set that the plugin will
@@ -8,20 +10,28 @@ var kDataSetTemplate = {
     title: '就業構造基本調査データ',
     collections: [  // There is just one collection
       {
-        name: 'Trials',
+        name: 'employment',
         attrs: [
         ],
       }
     ]
   };
-  
+
+$(function () {
+    init();
+});
+
 function set_kDataSetTemplate_attrs() {
-	kDataSetTemplate.collections[0].attrs.push({name: "Number of Successes"});
-	kDataSetTemplate.collections[0].attrs.push({name: "Number of Successes2"});
-	kDataSetTemplate.collections[0].attrs.push({name: "Number of Successes3"});
-	kDataSetTemplate.collections[0].attrs.push({name: "Number of Successes4"});
+	kDataSetTemplate.collections[0].attrs = [];
+	$('input:checked').each(function() {
+            var r = $(this).val();
+            kDataSetTemplate.collections[0].attrs.push({name:keychg[r]});
+        });
 }
   
+  
+
+
 /**
  * myState is a local copy of interactive state.
  *
@@ -106,8 +116,8 @@ function requestCreateCaseTable() {
       resource : "component",
       values : {
         type : 'caseTable',
-        dataContext : 'Trials',
-        name : 'Trials',
+        dataContext : 'employment',
+        name : 'employment',
         cannotClose : true
       }
     };
@@ -210,7 +220,7 @@ function init() {
 	  name: kDataSetName,
 	  title: kAppName,
 	  dimensions: {width: 700, height: 400},
-	  version: '1.3'
+	  version: '1.4'
 	}).then(function (iResult) {
 	  // get interactive state so we can save the sample set index.
 	  myState = codapInterface.getInteractiveState();
@@ -231,5 +241,3 @@ function init() {
 	  console.log(msg);
 	});
 }
-
-init();
