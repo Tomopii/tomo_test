@@ -33,7 +33,22 @@ var kDataSetTemplate = {
         name: 'Trials',
         title: 'test1 title',
         attrs: [
-        {name: "Number of Successes"}
+        {name: "Number of Successes1"},
+        {name: "Number of Successes2"}
+        ],
+      }
+    ]
+  };
+var kDataSetTemplate2 = {
+    name: "{name}",
+    collections: [  // There is just one collection
+      {
+        name: 'Trials',
+        title: 'test1 title',
+        attrs: [
+        {name: "Number of Successes1"},
+        {name: "Number of Successes2"},
+        {name: "Number of Successes3"}
         ],
       }
     ]
@@ -222,7 +237,8 @@ function processInput () {
 
 function test () {
 	//requestDeleteDataContext(kDataSetName);
-	requestUpdateCollection(kDataSetName,  'Trials', collectionTemplate2);
+	//requestUpdateCollection(kDataSetName,  'Trials', collectionTemplate2);
+	requestCreateDataSet(kDataSetName, kDataSetTemplate2);
 }
 
 function disableInput() {
