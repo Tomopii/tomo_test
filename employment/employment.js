@@ -217,17 +217,12 @@ function processInput () {
 		var items = [];
 		$('input:checked').each(function() {
 		    var r = $(this).val();
-		    items.push({'+keychg[r]+':data[i][r]});
+		    items.push({['+keychg[r]+']:data[i][r]});
 		})
 		if(i == 1) console.log(items);
 		//sendItems(kDataSetName,items);
         }
     }
-  var item = { "性別": 1 };
-  sendItems(kDataSetName, [item]);
-  var item = { "年齢": 61 };
-  sendItems(kDataSetName, [item]);
-  requestCreateCaseTable();
 }
 
 function make_table() {
@@ -251,7 +246,7 @@ function init() {
 	  name: kDataSetName,
 	  title: kAppName,
 	  dimensions: {width: 700, height: 400},
-	  version: '1.7'
+	  version: '1.8'
 	}).then(function (iResult) {
 	  // get interactive state so we can save the sample set index.
 	  myState = codapInterface.getInteractiveState();
