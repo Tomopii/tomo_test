@@ -33,7 +33,7 @@ function data_input() {
 	get_musakui($("#result").val(),Number($("#limit").val()));
 }
 
-ffunction get_musakui(result,limit) {
+function get_musakui(result,limit) {
     var param = { "result":result,"limit": limit};
     $.ajax({
         type: "GET",
@@ -247,7 +247,7 @@ function init() {
 	  name: kDataSetName,
 	  title: kAppName,
 	  dimensions: {width: 700, height: 400},
-	  version: '1.4'
+	  version: '1.1'
 	}).then(function (iResult) {
 	  // get interactive state so we can save the sample set index.
 	  myState = codapInterface.getInteractiveState();
