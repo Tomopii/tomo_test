@@ -33,8 +33,8 @@ function data_input() {
 	get_musakui($("#result").val(),Number($("#limit").val()));
 }
 
-function get_musakui(dataset,pref,limit) {
-    var param = { "dataset":dataset,"pref":pref,"limit": limit};
+ffunction get_musakui(result,limit) {
+    var param = { "result":result,"limit": limit};
     $.ajax({
         type: "GET",
         url: "https://playground.little-studios.co.jp/tomo/musakui/barrel.php",
