@@ -212,7 +212,7 @@ function requestCreateCaseTable() {
         dataContext : 'employment',
         name : 'employment',
 	  title: '調査テーブル',
-	  dimensions: {width: 700, height: 400},
+	  dimensions: {width: 800, height: 400},
 	  cannotClose : true
       }
     };
@@ -320,7 +320,7 @@ function init() {
 	  name: kDataSetName,
 	  title: '無作為調査',
 	  dimensions: {width: 700, height: 400},
-	  version: '1.2'
+	  version: '1.3'
 	}).then(function (iResult) {
 	  // get interactive state so we can save the sample set index.
 	  myState = codapInterface.getInteractiveState();
