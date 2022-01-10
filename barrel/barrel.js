@@ -1,8 +1,7 @@
 var data;
 var keychg = { 'batting_id':'打球ID', 'speed':'打球速度', 'angle':'打球角度', 'result':'打席結果'};
 
-var kDataSetName = 'barrel',
-    kAppName = "プロ野球バレル調査";
+var kDataSetName = 'バレル調査テーブル',
 // The following is the initial structure of the data set that the plugin will
 // refer to. It will look for it at startup and create it if not found.
 var kDataSetTemplate = {
@@ -10,7 +9,7 @@ var kDataSetTemplate = {
     title: 'プロ野球バレル調査データ',
     collections: [  // There is just one collection
       {
-        name: 'barrel',
+        name: 'バレル調査テーブル',
         attrs: [
         ],
       }
@@ -135,8 +134,9 @@ function requestCreateCaseTable() {
       resource : "component",
       values : {
         type : 'caseTable',
-        dataContext : 'barrel',
-        name : 'barrel',
+        dataContext : 'バレル調査テーブル',
+        name : 'バレル調査テーブル',
+	  dimensions: {width: 500, height: 300},
         cannotClose : true
       }
     };
@@ -247,7 +247,7 @@ function init() {
 	  name: kDataSetName,
 	  title: kAppName,
 	  dimensions: {width: 500, height: 300},
-	  version: '1.1'
+	  version: '1.2'
 	}).then(function (iResult) {
 	  // get interactive state so we can save the sample set index.
 	  myState = codapInterface.getInteractiveState();
