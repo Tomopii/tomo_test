@@ -30,6 +30,7 @@ function set_kDataSetTemplate_attrs() {
 function data_input() {
 	if(Number($("#limit").val()) > 1000) $("#limit").val(1000);
 	get_musakui($("#result").val(),Number($("#limit").val()));
+	$("#submitButton").prop("disabled", true);
 }
 
 function get_musakui(result,limit) {
@@ -44,7 +45,9 @@ function get_musakui(result,limit) {
     }).done(function(json){
         data = json.ret;
         processInput();
+	$("#submitButton").prop("disabled", false);
     }).fail(function(XMLHttpRequest, textStatus, errorThrown){
+	$("#submitButton").prop("disabled", false);
         alert(errorThrown);
     });
 }

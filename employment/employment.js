@@ -22,7 +22,10 @@ var kDataSetTemplate = {
   };
 
 $(function () {
-    init();
+	init();
+	$("#select_chousa1").prop("disabled", true);
+	$("#select_chousa2").prop("disabled", false);
+	$("#select_chousa3").prop("disabled", false);
 });
 
 function select_chousa1() {
@@ -32,6 +35,9 @@ function select_chousa1() {
 	$("#chousa1").show();
 	$("#chousa2").hide();
 	$("#chousa3").hide();
+	$("#select_chousa1").prop("disabled", true);
+	$("#select_chousa2").prop("disabled", false);
+	$("#select_chousa3").prop("disabled", false);
 }
 
 function select_chousa2() {
@@ -41,6 +47,9 @@ function select_chousa2() {
 	$("#chousa1").hide();
 	$("#chousa2").show();
 	$("#chousa3").hide();
+	$("#select_chousa1").prop("disabled", false);
+	$("#select_chousa2").prop("disabled", true);
+	$("#select_chousa3").prop("disabled", false);
 }
 
 function select_chousa3() {
@@ -50,6 +59,9 @@ function select_chousa3() {
 	$("#chousa1").hide();
 	$("#chousa2").hide();
 	$("#chousa3").show();
+	$("#select_chousa1").prop("disabled", false);
+	$("#select_chousa2").prop("disabled", false);
+	$("#select_chousa3").prop("disabled", true);
 }
 
 function set_kDataSetTemplate_attrs() {
@@ -63,14 +75,16 @@ function set_kDataSetTemplate_attrs() {
 function data_input() {
 	if(Number($("#limit").val()) > 2000) $("#limit").val(2000);
 	get_musakui($("#dataset").val(),$("#pref").val(),Number($("#limit").val()));
+	$("#submitButton1_2").prop("disabled", true);
 }
 function data_input2() {
 	if(Number($("#limit").val()) > 2000) $("#limit").val(2000);
 	get_musakui2(Number($("#limit2").val()));
-}
+	$("#submitButton2_2").prop("disabled", true);
 function data_input3() {
 	if(Number($("#limit").val()) > 2000) $("#limit").val(2000);
 	get_musakui3(Number($("#limit3").val()));
+	$("#submitButton3_2").prop("disabled", true);
 }
 
 function get_musakui(dataset,pref,limit) {
@@ -85,8 +99,10 @@ function get_musakui(dataset,pref,limit) {
     }).done(function(json){
         data = json.ret;
         processInput();
+	$("#submitButton1_2").prop("disabled", false);
     }).fail(function(XMLHttpRequest, textStatus, errorThrown){
-        alert(errorThrown);
+	$("#submitButton1_2").prop("disabled", false);
+	alert(errorThrown);
     });
 }
 function get_musakui2(limit) {
@@ -101,7 +117,9 @@ function get_musakui2(limit) {
     }).done(function(json){
         data = json.ret;
         processInput();
+	$("#submitButton2_2").prop("disabled", false);
     }).fail(function(XMLHttpRequest, textStatus, errorThrown){
+	$("#submitButton2_2").prop("disabled", false);
         alert(errorThrown);
     });
 }
@@ -115,9 +133,11 @@ function get_musakui3(limit) {
         dataType : "json",
         scriptCharset: 'utf-8'
     }).done(function(json){
+	$("#submitButton3_2").prop("disabled", false);
         data = json.ret;
         processInput();
     }).fail(function(XMLHttpRequest, textStatus, errorThrown){
+	$("#submitButton3_2").prop("disabled", false);
         alert(errorThrown);
     });
 }
@@ -317,7 +337,7 @@ function init() {
 	  name: kDataSetName,
 	  title: '無作為調査',
 	  dimensions: {width: 700, height: 400},
-	  version: '1.4'
+	  version: '1.5'
 	}).then(function (iResult) {
 	  // get interactive state so we can save the sample set index.
 	  myState = codapInterface.getInteractiveState();
