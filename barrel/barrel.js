@@ -245,7 +245,7 @@ function disableInput() {
 function init() {
 	codapInterface.init({
 	  name: kDataSetName,
-	  title: kAppName,
+	  title: 'プロ野球バレル調査データ',
 	  dimensions: {width: 500, height: 300},
 	  version: '1.2'
 	}).then(function (iResult) {
