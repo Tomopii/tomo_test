@@ -1,7 +1,7 @@
 var data;
 var keychg = { 'batting_id':'打球ID', 'speed':'打球速度', 'angle':'打球角度', 'result':'打席結果'};
 
-var kDataSetName = 'バレル調査テーブル',
+var kDataSetName = 'バレル調査テーブル';
 // The following is the initial structure of the data set that the plugin will
 // refer to. It will look for it at startup and create it if not found.
 var kDataSetTemplate = {

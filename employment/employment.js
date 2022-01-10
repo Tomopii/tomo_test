@@ -6,7 +6,7 @@ var keychg = keychg1;
 var checkDt = '#check input:checked';
 var chousaname = '就業構造基本調査';
 
-var kDataSetName = '調査テーブル',
+var kDataSetName = '調査テーブル';
 // The following is the initial structure of the data set that the plugin will
 // refer to. It will look for it at startup and create it if not found.
 var kDataSetTemplate = {
