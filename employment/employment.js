@@ -81,6 +81,7 @@ function data_input2() {
 	if(Number($("#limit").val()) > 2000) $("#limit").val(2000);
 	get_musakui2(Number($("#limit2").val()));
 	$("#submitButton2_2").prop("disabled", true);
+}
 function data_input3() {
 	if(Number($("#limit").val()) > 2000) $("#limit").val(2000);
 	get_musakui3(Number($("#limit3").val()));
