@@ -246,7 +246,7 @@ function init() {
 	codapInterface.init({
 	  name: kDataSetName,
 	  title: kAppName,
-	  dimensions: {width: 400, height: 400},
+	  dimensions: {width: 500, height: 300},
 	  version: '1.1'
 	}).then(function (iResult) {
 	  // get interactive state so we can save the sample set index.
