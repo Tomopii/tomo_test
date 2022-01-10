@@ -209,7 +209,7 @@ function requestCreateCaseTable() {
         dataContext : '調査テーブル',
         name : '調査テーブル',
 	  title: '調査テーブル',
-	  dimensions: {width: 800, height: 400},
+	  dimensions: {width: 1600, height: 400},
 	  cannotClose : true
       }
     };
