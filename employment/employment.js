@@ -6,17 +6,16 @@ var keychg = keychg1;
 var checkDt = '#check input:checked';
 var chousaname = '就業構造基本調査';
 
-var kDataSetName = 'employment',
+var kDataSetName = '調査テーブル',
     kAppName = "就業構造基本調査";
 // The following is the initial structure of the data set that the plugin will
 // refer to. It will look for it at startup and create it if not found.
 var kDataSetTemplate = {
     name: "{name}",
-    title: '就業構造基本調査データ',
+    title: "{name}",
     collections: [  // There is just one collection
       {
-        name: 'employment',
-	  title: "{chousaname}",
+        name: '調査テーブル',
         attrs: [
         ],
       }
@@ -177,7 +176,6 @@ function requestDataContext(name) {
 function requestCreateDataSet(name, template){
   var dataSetDef = Object.assign({}, template);
   dataSetDef.name = name;
-  dataSetDef.chousaname = chousaname;
   return codapInterface.sendRequest({
     action: 'create',
     resource: 'dataContext',
@@ -209,8 +207,8 @@ function requestCreateCaseTable() {
       resource : "component",
       values : {
         type : 'caseTable',
-        dataContext : 'employment',
-        name : 'employment',
+        dataContext : '調査テーブル',
+        name : '調査テーブル',
 	  title: '調査テーブル',
 	  dimensions: {width: 800, height: 400},
 	  cannotClose : true
@@ -320,7 +318,7 @@ function init() {
 	  name: kDataSetName,
 	  title: '無作為調査',
 	  dimensions: {width: 700, height: 400},
-	  version: '1.3'
+	  version: '1.4'
 	}).then(function (iResult) {
 	  // get interactive state so we can save the sample set index.
 	  myState = codapInterface.getInteractiveState();
