@@ -2,6 +2,20 @@ var data;
 var keychg1 = {'DataSource':'データ名称','Year' :'調査年','Prefecture':'都道府県符号','City':'政令指定市符号','Urban':'市部符号','Gender':'性別符号','Age':'年齢符号','WorkStatus':'就業状態符号','WorkEmploy':'雇用者符号','WorkRegular':'正規就業者符号','WorkIndustry':'産業符号','NoworkWish':'就業希望符号','NoworkApply':'求職符号','NoworkAge':'非就業者年齢符号','NoworkMarriage':'配偶関係符号','T_Prefecture' :'都道府県','T_City' :'政令指定市','T_Urban' :'市部','T_Gender' :'性別','T_Age' :'年齢','T_WorkStatus' :'就業状態','T_WorkEmploy' :'雇用者','T_WorkRegular' :'正規就業者','T_WorkIndustry' :'産業','T_NoworkWish' :'就業希望','T_NoworkApply' :'求職','T_NoworkAge' :'非就業者年齢','T_NoworkMarriage' :'配偶関係','Weight':'集計用乗率'};
 var keychg2 = {'T_San123':'産業符号','T_Syokugyo':'職業符号（産業符号）','T_KiKibo':'企業規模（産業符号）','T_Age_10':'年齢階級','Weight':'集計用乗率','Y_Income':'年間収入','L_Expenditure':'消費支出','Food':'食料','Housing':'住居','LFW':'光熱・水道','Furniture':'家具・家事用品','Clothes':'被服及び履物','Health':'保健医療','Transport':'交通・通信','Education':'教育','Recreation':'教養娯楽','OL_Expenditure':'その他の消費支出'};
 var keychg3 = {'3City':'３大都市圏か否か','T_SeJinin':'世帯人員','T_SyuJinin':'就業人員','T_JuSyoyu':'住宅の所有関係','T_Syuhi':'就業・非就業の別','T_Age_5s':'年齢階級２','T_Age_65':'年齢階級１','Weight':'集計用乗率','Y_Income':'年間収入','L_Expenditure':'消費支出','Food':'食料','Housing':'住居','LFW':'光熱・水道','Furniture':'家具・家事用品','Clothes':'被服及び履物','Health':'保健医療','Transport':'交通・通信','Education':'教育','Recreation':'教養娯楽','OL_Expenditure':'その他の消費支出'};
+var chg_type = 1;
+var chg2 = [];
+var chg2[1] = ["","第１次産業（勤め先）","第２次産業（勤め先）","第３次産業（勤め先）"];
+var chg2[2] = ["第１次産業","","職員（第２次、第３次産業）","その他（第２次、第３次産業）"];
+var chg2[3] = ["第１次産業","１～29人（第２次、第３次産業）","30～499人（第２次、第３次産業）","500人以上、官公（第２次、第３次産業）"];
+var chg2[4] = ["","30歳未満","30～39歳","40～49歳","50～59歳","60歳以上"];
+var chg3 = [];
+var chg3[1] = ["３大都市圏以外","３大都市圏"];
+var chg3[2] = ["","","２人","３人以上"];
+var chg3[3] = ["","１人以下","２人以上"]
+var chg3[4] = ["","持ち家","借家・借間"];
+var chg3[5] = ["","就業","非就業"];
+var chg3[6] = ["就業者以外","（就業者）30歳未満","（就業者）30～34歳","（就業者）35～39歳","（就業者）40～44歳","（就業者）45～49歳","（就業者）50～54歳","（就業者）55～59歳","（就業者）60～64歳","（就業者）65歳以上"];
+var chg3[7] = ["","65歳未満","65歳以上"];
 var keychg = keychg1;
 var checkDt = '#check input:checked';
 var chousaname = '就業構造基本調査';
@@ -29,6 +43,7 @@ $(function () {
 });
 
 function select_chousa1() {
+	chg_type = 1;
 	keychg = keychg1;
 	chousaname = '就業構造基本調査';
 	checkDt = '#check input:checked';
@@ -41,6 +56,7 @@ function select_chousa1() {
 }
 
 function select_chousa2() {
+	chg_type = 2;
 	keychg = keychg2;
 	chousaname = '全国消費実態調査（勤労者世帯）';
 	checkDt = '#check2 input:checked';
@@ -53,6 +69,7 @@ function select_chousa2() {
 }
 
 function select_chousa3() {
+	chg_type = 3;
 	keychg = keychg3;
 	chousaname = '平成21年全国消費実態調査';
 	checkDt = '#check3 input:checked';
@@ -311,6 +328,7 @@ function processInput () {
 		$(checkDt).each(function() {
 		    var r = $(this).val();
 		    item[keychg[r]] = data[i][r];
+		    if(i == 1) console.log(r,data[i][r]);
 		})
 		items.push(item);
 	}
@@ -338,7 +356,7 @@ function init() {
 	  name: kDataSetName,
 	  title: '無作為調査',
 	  dimensions: {width: 700, height: 400},
-	  version: '1.5'
+	  version: '1.6'
 	}).then(function (iResult) {
 	  // get interactive state so we can save the sample set index.
 	  myState = codapInterface.getInteractiveState();
