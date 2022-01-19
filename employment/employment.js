@@ -2,6 +2,8 @@ var data;
 var keychg1 = {'DataSource':'データ名称','Year' :'調査年','Prefecture':'都道府県符号','City':'政令指定市符号','Urban':'市部符号','Gender':'性別符号','Age':'年齢符号','WorkStatus':'就業状態符号','WorkEmploy':'雇用者符号','WorkRegular':'正規就業者符号','WorkIndustry':'産業符号','NoworkWish':'就業希望符号','NoworkApply':'求職符号','NoworkAge':'非就業者年齢符号','NoworkMarriage':'配偶関係符号','T_Prefecture' :'都道府県','T_City' :'政令指定市','T_Urban' :'市部','T_Gender' :'性別','T_Age' :'年齢','T_WorkStatus' :'就業状態','T_WorkEmploy' :'雇用者','T_WorkRegular' :'正規就業者','T_WorkIndustry' :'産業','T_NoworkWish' :'就業希望','T_NoworkApply' :'求職','T_NoworkAge' :'非就業者年齢','T_NoworkMarriage' :'配偶関係','Weight':'集計用乗率'};
 var keychg2 = {'T_San123':'産業符号','T_Syokugyo':'職業符号（産業符号）','T_KiKibo':'企業規模（産業符号）','T_Age_10':'年齢階級','Weight':'集計用乗率','Y_Income':'年間収入','L_Expenditure':'消費支出','Food':'食料','Housing':'住居','LFW':'光熱・水道','Furniture':'家具・家事用品','Clothes':'被服及び履物','Health':'保健医療','Transport':'交通・通信','Education':'教育','Recreation':'教養娯楽','OL_Expenditure':'その他の消費支出'};
 var keychg3 = {'3City':'３大都市圏か否か','T_SeJinin':'世帯人員','T_SyuJinin':'就業人員','T_JuSyoyu':'住宅の所有関係','T_Syuhi':'就業・非就業の別','T_Age_5s':'年齢階級２','T_Age_65':'年齢階級１','Weight':'集計用乗率','Y_Income':'年間収入','L_Expenditure':'消費支出','Food':'食料','Housing':'住居','LFW':'光熱・水道','Furniture':'家具・家事用品','Clothes':'被服及び履物','Health':'保健医療','Transport':'交通・通信','Education':'教育','Recreation':'教養娯楽','OL_Expenditure':'その他の消費支出'};
+var chg_no2 = {'T_San123':1,'T_Syokugyo':2,'T_KiKibo':3,'T_Age_10':4};
+var chg_no3 = {'3City':1,'T_SeJinin':2,'T_SyuJinin':3,'T_JuSyoyu':4,'T_Syuhi':5,'T_Age_5s':6,'T_Age_65':7};
 var chg_type = 1;
 var chg2 = [];
 chg2[1] = ["","第１次産業（勤め先）","第２次産業（勤め先）","第３次産業（勤め先）"];
@@ -328,7 +330,12 @@ function processInput () {
 		$(checkDt).each(function() {
 		    var r = $(this).val();
 		    item[keychg[r]] = data[i][r];
-		    if(i == 1) console.log(r,data[i][r]);
+		    if(chg_type == 2) {
+			if(chg_no2[r] > 0) {
+				if(i == 1) console.log(r,data[i][r],chg2[chg_no2[r]][Number(data[i][r])]);
+			}
+		    } else if(chg_type == 3) {
+		    }
 		})
 		items.push(item);
 	}
@@ -356,7 +363,7 @@ function init() {
 	  name: kDataSetName,
 	  title: '無作為調査',
 	  dimensions: {width: 700, height: 400},
-	  version: '1.6'
+	  version: '1.7'
 	}).then(function (iResult) {
 	  // get interactive state so we can save the sample set index.
 	  myState = codapInterface.getInteractiveState();
