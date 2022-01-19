@@ -332,9 +332,20 @@ function processInput () {
 		    item[keychg[r]] = data[i][r];
 		    if(chg_type == 2) {
 			if(chg_no2[r] > 0) {
-				if(i == 1) console.log(r,data[i][r],chg2[chg_no2[r]][Number(data[i][r])]);
+				item[keychg[r]] = chg2[chg_no2[r]][Number(data[i][r])];
+				//if(i == 1) console.log(r,data[i][r],chg2[chg_no2[r]][Number(data[i][r])]);
+			} else if(r == "Y_Income") {
+				item[keychg[r]] = Number(data[i][r])*1000;
+				//console.log(r,data[i][r],Number(data[i][r])*1000);
 			}
 		    } else if(chg_type == 3) {
+			if(chg_no3[r] > 0) {
+				item[keychg[r]] = chg3[chg_no3[r]][Number(data[i][r])];
+				//if(i == 1) console.log(r,data[i][r],chg3[chg_no3[r]][Number(data[i][r])]);
+			} else if(r == "Y_Income") {
+				item[keychg[r]] = Number(data[i][r])*1000;
+				//console.log(r,data[i][r],Number(data[i][r])*1000);
+			}
 		    }
 		})
 		items.push(item);
@@ -363,7 +374,7 @@ function init() {
 	  name: kDataSetName,
 	  title: '無作為調査',
 	  dimensions: {width: 700, height: 400},
-	  version: '1.7'
+	  version: '1.8'
 	}).then(function (iResult) {
 	  // get interactive state so we can save the sample set index.
 	  myState = codapInterface.getInteractiveState();
