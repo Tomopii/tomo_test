@@ -11,13 +11,20 @@
       background-color: white;
     }
     #chousa1 {
+    	font-size: 7pt;
     }
     #chousa2 {
           display: none;
+          font-size: 7pt;
       }
     #chousa3 {
           display: none;
+          font-size: 7pt;
       }
+    input[type=checkbox] {
+        transform: scale(0.7);
+        margin: 0 6px 0 0;
+    }
   </style>
   <title>就業構造基本調査</title>
 </head>
@@ -27,7 +34,7 @@
 <input type="button" id="select_chousa2" onClick="select_chousa2();" value="全国消費実態調査（勤労者世帯）">
 <input type="button" id="select_chousa3" onClick="select_chousa3();" value="平成21年全国消費実態調査">
 <div id="chousa1">
-<h1>就業構造基本調査</h1>
+<h2>就業構造基本調査</h2>
 	<div id="check">
 	    <input type="checkbox" name="sample" value="DataSource">データ名称
 	    <input type="checkbox" name="sample" value="Year" checked>調査年
@@ -128,7 +135,7 @@
     <input type="button" id="submitButton1_2" onClick="data_input();" value="データー追加">
 </div>
 <div id="chousa2">
-<h1>全国消費実態調査（勤労者世帯）</h1>
+<h2>全国消費実態調査（勤労者世帯）</h2>
     <div id="check2">
 	    <input type="checkbox" name="sample" value="T_San123" checked>産業符号
 	    <input type="checkbox" name="sample" value="T_Syokugyo" checked>職業符号（産業符号）
@@ -157,7 +164,7 @@
     <input type="button" id="submitButton2_2" onClick="data_input2();" value="データー追加">
 </div>
 <div id="chousa3">
-<h1>平成21年全国消費実態調査</h1>
+<h2>平成21年全国消費実態調査</h2>
     <div id="check3">
 	    <input type="checkbox" name="sample" value="3City" checked>３大都市圏か否か
 	    <input type="checkbox" name="sample" value="T_SeJinin" checked>世帯人員
