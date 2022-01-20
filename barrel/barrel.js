@@ -249,7 +249,7 @@ function init() {
 	codapInterface.init({
 	  name: kDataSetName,
 	  title: 'プロ野球バレル調査データ',
-	  dimensions: {width: 350, height: 200},
+	  dimensions: {width: 400, height: 200},
 	  version: '1.6'
 	}).then(function (iResult) {
 	  // get interactive state so we can save the sample set index.
