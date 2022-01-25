@@ -108,7 +108,7 @@ taskDescriptions = {
       React.createElement(
         'p',
         null,
-        'これで、ポイントはその属性値に従って軸に沿って配置されたことになる。'
+        'これで、ポイントはその属性値に従って軸に沿って配置されたことになります。。'
       ),
       React.createElement(
         'p',
