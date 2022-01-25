@@ -36,7 +36,7 @@ class HelpWelcomeArea extends React.Component {
           React.createElement(
             'h2',
             null,
-            'Welcome to CODAP'
+            'ようこそCODAPへ'
           )
         );
         break;
@@ -385,9 +385,9 @@ function getStarted() {
 
   codapInterface.init({
     title: "Getting started with CODAP",
-    version: "1.05",
+    version: "1.06",
     dimensions: {
-      width: 400,
+      width: 500,
       height: 550
     },
     preventDataContextReorg: false
