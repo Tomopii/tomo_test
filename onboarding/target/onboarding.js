@@ -301,7 +301,7 @@ class TutorialView extends React.Component {
         handleDataContextCountChanged();
         break;
       case 'create':
-        if (iNotification.values.type === 'graph') this.handleAccomplishment('MakeGraph', !this.isAccomplished('Drag'));else if (iNotification.values.type === 'table') this.handleAccomplishment('MakeTable');
+        if (iNotification.values.type === 'graph') this.handleAccomplishment('MakeGraph', !this.isAccomplished('Drag'));else if (iNotification.values.type === 'caseTable', !this.isAccomplished('Drag')) this.handleAccomplishment('MakeTable');
         break;
       case 'move':
         if (iNotification.values.type === 'DG.GraphView' || iNotification.values.type === 'DG.TableView') this.handleAccomplishment('MoveComponent');
@@ -385,7 +385,7 @@ function getStarted() {
 
   codapInterface.init({
     title: "Getting started with CODAP",
-    version: "1.04",
+    version: "1.05",
     dimensions: {
       width: 400,
       height: 550
@@ -394,9 +394,8 @@ function getStarted() {
   }).catch(function (msg) {
     console.log(msg);
   });
-console.log("hasMouse2",hasMouse);
+
   if (!hasMouse) {
-  console.log(window.location.href.replace(/\/[^\/]*$/, "") + "/resources/mammals.csv");
     codapInterface.sendRequest({
       action: 'create',
       resource: 'dataContextFromURL',
