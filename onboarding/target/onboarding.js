@@ -385,7 +385,7 @@ function getStarted() {
 
   codapInterface.init({
     title: "Getting started with CODAP",
-    version: "1.03",
+    version: "1.04",
     dimensions: {
       width: 400,
       height: 550
@@ -394,7 +394,7 @@ function getStarted() {
   }).catch(function (msg) {
     console.log(msg);
   });
-
+console.log("hasMouse2",hasMouse);
   if (!hasMouse) {
   console.log(window.location.href.replace(/\/[^\/]*$/, "") + "/resources/mammals.csv");
     codapInterface.sendRequest({
