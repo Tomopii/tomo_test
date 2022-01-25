@@ -64,24 +64,24 @@ taskDescriptions = {
       React.createElement(
         'p',
         null,
-        'You ',
+        ' ',
         React.createElement(
           'em',
           null,
-          'moved'
+          ''
         ),
         ' そのコンポーネントのタイトルバーをクリック＆ドラッグしてください。'
       ),
       React.createElement(
         'p',
         null,
-        'You can also ',
+        '',
         React.createElement(
           'em',
           null,
-          'resize'
+          ''
         ),
-        'エッジや下部の角をドラッグすることで、コンポーネントを作成することができます。'
+        ' エッジや下部の角をドラッグすることで、大きさを変えることができます。'
       )
     )
   },
@@ -129,13 +129,13 @@ taskDescriptions = {
       React.createElement(
         'p',
         null,
-        'Your graph is ',
+        '',
         React.createElement(
           'em',
           null,
-          'bivariate'
+          ''
         ),
-        ' 1つのグラフに2つの属性を表示したことを意味します。'
+        ' 1つのグラフに2つの属性を表示することができました。'
       ),
       React.createElement(
         'p',
