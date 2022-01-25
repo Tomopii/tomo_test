@@ -80,7 +80,7 @@ class HelpLink extends React.Component {
     return React.createElement(
       'scan',
       { className: 'App-help', onClick: this.handleHelpClick },
-      'Œ©‚Ä‚­‚¾‚³‚¢B'
+      'è¦‹ã¦ãã ã•ã„ã€‚'
     );
   }
 }
@@ -368,7 +368,7 @@ class TutorialView extends React.Component {
       React.createElement(
         'p',
         { className: 'App-intro' },
-        'CODAP‚ÌŠî–{“I‚Èƒ^ƒXƒN‚ğ‚»‚ê‚¼‚ê‚Ç‚Ì‚æ‚¤‚É’B¬‚·‚é‚©‚ğl‚¦‚Ä‚İ‚Ü‚µ‚å‚¤B'
+        'CODAPã®åŸºæœ¬çš„ãªã‚¿ã‚¹ã‚¯ã‚’ãã‚Œãã‚Œã©ã®ã‚ˆã†ã«é”æˆã™ã‚‹ã‹ã‚’è€ƒãˆã¦ã¿ã¾ã—ã‚‡ã†ã€‚'
       ),
       React.createElement(
         'div',
