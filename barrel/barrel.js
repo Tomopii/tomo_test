@@ -37,7 +37,7 @@ function get_musakui(result,limit) {
     var param = { "result":result,"limit": limit};
     $.ajax({
         type: "GET",
-        url: "https://playground.little-studios.co.jp/tomo/musakui/barrel.php",
+        url: "https://stats-steam.net/barrel.php",
         data: param,
         crossDomain: true,
         dataType : "json",
