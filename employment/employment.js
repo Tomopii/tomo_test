@@ -111,7 +111,7 @@ function get_musakui(dataset,pref,limit) {
     var param = { "dataset":dataset,"pref":pref,"limit": limit};
     $.ajax({
         type: "GET",
-        url: "https://stats-steam.net/musakui_db.php",
+        url: "https://playground.little-studios.co.jp/tomo/musakui/musakui_db.php",
         data: param,
         crossDomain: true,
         dataType : "json",
@@ -129,7 +129,7 @@ function get_musakui2(limit) {
     var param = { "limit": limit};
     $.ajax({
         type: "GET",
-        url: "https://stats-steam.net/zensho_k.php",
+        url: "https://playground.little-studios.co.jp/tomo/musakui/zensho_k.php",
         data: param,
         crossDomain: true,
         dataType : "json",
@@ -147,7 +147,7 @@ function get_musakui3(limit) {
     var param = { "limit": limit};
     $.ajax({
         type: "GET",
-        url: "https://stats-steam.net/zensho_z.php",
+        url: "https://playground.little-studios.co.jp/tomo/musakui/zensho_z.php",
         data: param,
         crossDomain: true,
         dataType : "json",
