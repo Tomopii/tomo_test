@@ -1,0 +1,8 @@
+matplotlib
+scipy
+numpy
+japanize-matplotlib
+streamlit==1.4.0
+statsmodels
+pydse
+click==8.0.4
